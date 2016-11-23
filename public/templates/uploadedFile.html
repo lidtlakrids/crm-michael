@@ -1,0 +1,16 @@
+<tr data-template-bind='[{"attribute":"data-file-id","value":"FileId"}]'>
+    <td><input type="checkbox" class="fileCheckBox"  data-value="FileId" name="fileCheckBox"></td>
+    <td data-content="Created"></td>
+    <td>
+        <a href="#" data-template-bind='[{"attribute":"title","value":"PreviewLabel"}]' data-content="Name"
+           class="previewFile"></a>
+    </td>
+    <td data-template-bind='[{"attribute":"title","value":"FullName"}]' data-content="UserName">
+    </td>
+    <td>
+        <i data-template-bind='[{"attribute":"title","value":"DownloadLabel"}]'
+           class="fa fa-arrow-circle-down downloadFile"></i>
+        &nbsp
+        <i data-template-bind='[{"attribute":"title","value":"DeleteLabel"}]' class="fa fa-times deleteFile"></i>
+    </td>
+</tr>

@@ -1,0 +1,15 @@
+ <!--right side menu task-->
+<div class="contextual-progress rightMenuTaskContainer" data-template-bind='[{"attribute":"data-due-date", "value":"DueTime"}]'>
+    <div class="clearfix">
+        <div class="progress-title" data-template-bind='[{"attribute":"title","value":"Description"},{"attribute":"data-task-model","value":"TaskModel"},{"attribute":"data-task-model-id","value":"TaskModelId"}]'>
+            <input class="pull-left taskCheck" style="margin-right: 4px;" type="checkbox" data-value="TaskId">
+            <a data-href="TaskLink" data-content="TaskTitle"></a>
+        </div>
+        <div class="progress-percentage">
+            <span data-content="Due" class="responsive-text"></span>
+            <span data-content="DueTime" data-format="DateFormatter" class="responsive-text dashboardTaskDue"></span>
+            <span data-content-append="SubTasksCount"></span>
+            <i class="fa fa-pencil quickEditTask" style="color:red" title="Edit the task"></i>
+        </div>
+    </div>
+</div>

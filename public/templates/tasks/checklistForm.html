@@ -1,0 +1,69 @@
+<div class="form-horizontal">
+    <form id="checkListForm">
+        <input type="hidden" name="Model" data-value="Model">
+        <input type="hidden" name="ModelId" data-value="ModelId">
+        <div class="form-group">
+            <label for="checklist-GroupName" data-content="ChecklistGroupLabel" class="col-sm-3 control-label"></label>
+            <div class="col-sm-9">
+                <input type="text" name="Title"  class="form-control" id="checklist-GroupName" required="required">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="checklist-Description" data-content="DescriptionLabel" class="col-sm-3 control-label"></label>
+            <div class="col-sm-9">
+                <textarea name="Description"  class="form-control" id="checklist-Description" required="required"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="checklist-AssignedTo_Id" class="col-md-3 control-label">Assigned to</label>
+            <div class="col-sm-6">
+                <select name="AssignedTo_Id" class="form-control" id="checklist-AssignedTo_Id">
+                    <option value="">Select user</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <p class="help-block"><i class=" fa fa-info-circle" title="Help Text!"></i></p>
+            </div>
+        </div>
+        <hr>
+        <h4>Sub tasks</h4>
+        <div class="form-group">
+            <label for="checklistItem-Title" data-content="TitleLabel" class="col-sm-3 control-label"></label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="checklistItem-Title">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="checklistItem-Description" data-content="DescriptionLabel" class="col-sm-3 control-label"></label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="checklistItem-Description"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="checklistItem-AssignedTo_Id" class="col-md-3 control-label">Assigned to</label>
+            <div class="col-sm-6">
+                <select class="form-control" id="checklistItem-AssignedTo_Id">
+                    <option value="">Select user</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <p class="help-block"><i class=" fa fa-info-circle" title="Help Text!"></i></p>
+            </div>
+        </div>
+        <div class="col-md-3 col-md-offset-9">
+            <div class="btn-toolbar">
+                <button class="btn btn-green btn-label" id="addItemToCheckList">+</button>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <ul class="checklistItemsList">
+            </ul>
+        </div>
+
+        <div class="btn-toolbar">
+            <hr />
+            <input type="submit" class="btn btn-orange btn-label form-control" data-value="SaveLabel">
+        </div>
+    </form>
+</div>

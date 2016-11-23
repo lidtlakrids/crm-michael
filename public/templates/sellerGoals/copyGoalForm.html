@@ -1,0 +1,94 @@
+<div class="form-horizontal">
+    <form id="createGoalForm">
+        <div class="form-group">
+            <label for="goal-User_Id" class="col-md-3 control-label"><strong data-content="SelectUserLabel"></strong></label>
+            <div class="col-md-8">
+                <select name="User_Id" type="text" id="goal-User_Id" class="form-control" required="required">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="goal-period" class="col-md-3 control-label"><strong data-content="GoalPeriodLabel"></strong></label>
+            <div class="col-md-4">
+                <select name="Year" type="text" id="goal-Year"  class="form-control" data-options="Years" required="required">
+                    <option value="">Select Year</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <select name="Month" type="text" id="goal-Month" class="form-control" data-options="Months" required="required">
+                    <option value="">Select Month</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="goal-NewSalesCountGoal" class="col-md-3 control-label"><strong data-content="NewSalesCountGoalLabel"></strong></label>
+            <div class="col-md-8">
+                <input name="NewSalesCountGoal" type="number" min="0" id="goal-NewSalesCountGoal" data-value="NewSalesCountGoal" class="form-control" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="goal-NewSalesGoal" class="col-md-3 control-label"><strong data-content="NewSalesGoalLabel"></strong></label>
+            <div class="col-md-8">
+                <input name="NewSalesGoal" type="number" min="0" id="goal-NewSalesGoal" data-value="NewSalesGoal" class="form-control" required="required" placeholder="DKK">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="goal-UpSalesCountGoal" class="col-md-3 control-label"><strong data-content="UpSalesCountGoalLabel"></strong></label>
+            <div class="col-md-8">
+                <input name="UpSalesCountGoal" type="number" min="0"  data-value="UpSalesCountGoal" id="goal-UpSalesCountGoal" class="form-control" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="goal-UpSalesGoal" class="col-md-3 control-label"><strong data-content="UpSalesGoalLabel"></strong></label>
+            <div class="col-md-8">
+                <input name="UpSalesGoal" type="number" min="0" id="goal-UpSalesGoal" data-value="UpSalesGoal" class="form-control" required="required" placeholder="DKK">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="goal-ReSalesCountGoal" class="col-md-3 control-label"><strong data-content="ReSalesCountGoalLabel"></strong></label>
+            <div class="col-md-8">
+                <input name="ReSalesCountGoal" type="number" min="0" id="goal-ReSalesCountGoal" data-value="ReSalesCountGoal" class="form-control" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="goal-ReSalesGoal" class="col-md-3 control-label"><strong data-content="ReSalesGoalLabel"></strong></label>
+            <div class="col-md-8">
+                <input name="ReSalesGoal" type="number" min="0" id="goal-ReSalesGoal" data-value="ReSalesGoal" class="form-control" required="required" placeholder="DKK">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="goal-CallsGoal" class="col-md-3 control-label"><strong data-content="CallsGoalLabel"></strong></label>
+            <div class="col-md-8">
+                <input name="CallsGoal" type="number" min="0" id="goal-CallsGoal" data-value="CallsGoal" class="form-control" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="goal-HealthChecksGoal" class="col-md-3 control-label"><strong data-content="HealthChecksGoalLabel"></strong></label>
+            <div class="col-md-8">
+                <input name="HealthChecksGoal" type="number" min="0" id="goal-HealthChecksGoal" data-value="HealthChecksGoal" class="form-control" required="required">
+            </div>
+        </div>
+
+        <!--<div class="form-group">-->
+            <!--<label for="goal-MeetingsGoal" class="col-md-3 control-label"><strong>Meetings Goal</strong></label>-->
+            <!--<div class="col-md-8">-->
+                <!--<input name="MeetingsGoal" type="number" min="0" id="goal-MeetingsGoal" data-value="MeetingsGoal" class="form-control" required="required">-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="btn-toolbar">
+            <hr />
+            <input type="submit" class="btn btn-green form-control" data-value="CreateLabel">
+        </div>
+    </form> </div>

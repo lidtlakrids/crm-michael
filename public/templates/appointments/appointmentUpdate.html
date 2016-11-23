@@ -1,0 +1,54 @@
+<div class="form-horizontal">
+    <form id="appointmentUpdateForm">
+        <input type="hidden" data-value="CalendarEvent_Id" name="CalendarEvent_Id" >
+        <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    Status
+                </label>
+                <label class="col-sm-3" style="margin-top: 7px;">
+                    <input type="checkbox" class="updateAppointmentActivities" name="Completed">
+                    Completed
+                </label>
+                <label class="col-sm-3" style="margin-top: 7px;">
+                    <input type="checkbox" class="updateAppointmentActivities" name="Cancel">
+                    Cancelled
+                </label>
+                <label class="col-sm-3" style="margin-top: 7px;">
+                    <input type="checkbox" class="updateAppointmentActivities" name="NoAnswer">
+                    No answer
+                </label>
+        </div>
+        <div class="form-group hidden" id="commentGroup">
+            <label class="col-md-3 control-label" for="appointment-comment">Add comment</label>
+            <div class="col-md-8">
+                <textarea id="appointment-comment" class="form-control" name="Comment"></textarea>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label class=" col-sm-offset-3 col-sm-6">
+                <input type="checkbox" class="moveAppointment" name="moveAppointment">
+                Move the meeting
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="appointment-time">Pick a new date</label>
+            <div class="col-sm-8 ">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <input name="time" disabled type="text" class="form-control " id="appointment-time"
+                           style="background-color: white;cursor: pointer;" readonly="readonly" required="required">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input type="submit" class="btn btn-primary form-control" value="Save">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="timelineUpdateAppointment">
+
+</div>

@@ -1,0 +1,111 @@
+<h4><i class="fa fa-user"></i> Add a contact</h4>
+<div class="form-horizontal">
+    <form id="addContactToAlias" style="font-size: 12px">
+    <input type="hidden" data-value="ClientAlias_Id" name="ClientAlias_Id">
+    <div class="form-group">
+        <label for="contact-Name" class="col-md-3 control-label">Name</label>
+        <div class="col-sm-6">
+            <input class="form-control input-sm" id="contact-Name" placeholder="Enter name"
+                   required="required" name="Name" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="contact-Phone" class="col-md-3 control-label">Phone</label>
+        <div class="col-sm-6">
+            <input class="form-control input-sm" id="contact-Phone" placeholder="Enter phone"
+                   required="required" name="Phone" type="text" pattern="[+]?\d*">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="contact-Title" class="col-md-3 control-label">Title</label>
+        <div class="col-sm-6">
+            <input class="form-control input-sm" id="contact-Title" placeholder="Enter title"
+                   name="JobFunction" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="contact-Email"
+               class="col-md-3 control-label">Email</label>
+        <div class="col-sm-6">
+            <input class="form-control input-sm" id="contact-Email"
+                   placeholder="Email" name="Email" required="required" type="email">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Birthdate</label>
+        <div class="col-sm-6">
+            <input type="text" autocomplete="off" placeholder="Birthdate"
+                   name="Birthdate" class="form-control contact-birthdate input-sm">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="contact-Department"
+               class="col-sm-3 control-label">Department</label>
+        <div class="col-sm-6">
+            <select name="Department" id="contact-Department" class="form-control input-sm">
+                <option value="">Select</option>
+                <option value="Owner">Owner</option>
+                <option value="Sales">Sales</option>
+                <option value="Management">Management</option>
+                <option value="Accounting">Accounting</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="contact-Description"
+               class="col-sm-3 control-label">Description</label>
+        <div class="col-sm-6">
+            <textarea class="form-control input-sm" id="contact-Description" name="Description"></textarea>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="contact-Facebook"
+               class="col-md-3 control-label">Facebook link</label>
+        <div class="col-sm-6">
+            <input class="form-control input-sm" id="contact-Facebook"
+                   placeholder="Facebook" name="Facebook" type="text" pattern="^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?" >
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="contact-LinkedIn"
+               class="col-md-3 control-label">LinkedIn link</label>
+        <div class="col-sm-6">
+            <input class="form-control input-sm" id="contact-LinkedIn"
+                   placeholder="LinkedIn" name="LinkedIn" type="text" pattern="^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="contact-MainContact"
+               class="col-md-3 control-label">Main Contact <i class="fa fa-question" title="If you select this, other main contact will be updated and this one will become the main one."></i>
+        </label>
+        <div class="col-sm-6">
+            <input class="form-control input-sm" id="contact-MainContact"
+                   name="MainContact" type="checkbox" value="true">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="contact-ReceiveReports"
+               class="col-md-3 control-label">Reporting person <i class="fa fa-question" title="Is this the person that should receive reports"></i>
+        </label>
+        <div class="col-sm-6">
+            <input class="form-control input-sm" id="contact-ReceiveReports"
+                   name="ReceiveReports" type="checkbox" value="true">
+        </div>
+    </div>
+
+    <div class="btn-toolbar col-sm-12">
+        <input type="submit" value="Save" class="btn btn-green form-control">
+    </div>
+</form>
+</div>

@@ -1,0 +1,104 @@
+<div class="form-horizontal">
+    <form id="quickTaskEditForm">
+
+        <input type="hidden" data-value="TaskId" name="TaskId">
+        <input type="hidden" data-value="Row" name="UpdateRow">
+        <div class="form-group">
+            <label for="task-Model" data-content="ItemLabel" class="col-md-3 control-label"></label>
+            <div class="col-sm-6">
+                <input type="text" name="Model" data-value="Model" class="form-control" id="task-Model" placeholder="Type" autocomplete="off" list="modelNames">
+                <input type="number" min="0" name="ModelId" data-value="ModelId" class="form-control" placeholder="ID" id="task-ModelId">
+                <label style="cursor: pointer; "><input type="checkbox" style="cursor: pointer;" name="ForItem" id="setForCurrentItem">
+                    <p style="display:inline; font-size:12px;"> Apply to current item</p>
+                </label>
+            </div>
+            <div class="col-sm-3">
+                <p class="help-block"><i class=" fa fa-info-circle" title="Help Text!"></i></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="task-Title" data-content="TitleLabel" class="col-md-3 control-label"></label>
+            <div class="col-sm-6">
+                <input type="text" name="Title" data-value="Title" class="form-control" id="task-Title" required="required">
+            </div>
+            <div class="col-sm-3">
+                <p class="help-block"><i class=" fa fa-info-circle" title="Help Text!"></i></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="task-Description" data-content="DescriptionLabel" class="col-md-3 control-label"></label>
+            <div class="col-sm-6">
+                <textarea data-content="Description" class="form-control" id="task-Description" name="Description"></textarea>
+            </div>
+            <div class="col-sm-3">
+                <p class="help-block"><i class=" fa fa-info-circle" title="Help Text!"></i></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="task-StartTime" data-content="StartTimeLabel" class="col-md-3 control-label"></label>
+            <div class="col-sm-6">
+                <input type="text" name="StartTime"
+                       data-value="StartTime" class="form-control datetimepicker"
+                       id="task-StartTime"
+                       data-template-bind='[{"attribute":"disabled","value":"Disabled"}]'>
+            </div>
+            <div class="col-sm-3">
+                <p class="help-block"><i class=" fa fa-info-circle" title="Help Text!"></i></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="task-DueTime" data-content="DueTimeLabel" class="col-md-3 control-label"></label>
+            <div class="col-sm-6">
+                <input type="text" name="DueTime" data-value="DueTime"
+                       class="form-control datetimepicker" id="task-DueTime"
+                       data-template-bind='[{"attribute":"disabled","value":"Disabled"}]'>
+            </div>
+            <div class="col-sm-3">
+                <p class="help-block"><i class=" fa fa-info-circle" title="Help Text!"></i></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="task-AssignedTo_Id" data-content="UserLabel" class="col-md-3 control-label"></label>
+            <div class="col-sm-6">
+                <select name="AssignedTo_Id" class="form-control" id="task-AssignedTo_Id"></select>
+            </div>
+            <div class="col-sm-3">
+                <p class="help-block"><i class=" fa fa-info-circle" title="Help Text!"></i></p>
+            </div>
+        </div>
+
+        <!--<div class="form-group">-->
+            <!--<label for="task-SortOrder" class="col-md-3 control-label">Priority</label>-->
+            <!--<div class="col-sm-6">-->
+                <!--<input name="SortOrder" class="form-control" data-value="SortOrder" id="task-SortOrder" type="number" min="0" required="required">-->
+            <!--</div>-->
+            <!--<div class="col-sm-3">-->
+                <!--<p class="help-block">Lower number = higher priority</p>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="form-group">
+            <label for="task-NotifyCreator" class="col-md-3 control-label">Notify creator</label>
+            <div class="col-sm-6">
+                <input type="checkbox" name="NotifyCreator" class="form-control" id="task-NotifyCreator"
+                       data-template-bind='[{"attribute":"checked","value":"NotifyCreator"}]'>
+            </div>
+            <div class="col-sm-3">
+                <p class="help-block"><i class=" fa fa-info-circle" title="Should the creator of the task be notified when it's completed"></i></p>
+            </div>
+        </div>
+
+        <hr>
+
+
+        <div class="btn-toolbar">
+            <hr />
+            <input type="submit" class="btn btn-orange btn-label form-control" data-value="SaveLabel">
+        </div>
+    </form>
+</div>

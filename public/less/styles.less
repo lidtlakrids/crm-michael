@@ -1,0 +1,99 @@
+/*!
+ * Avant v1.3 (c) by The Red Team
+ * Powered by Bootstrap v3.2 and FontAwesome 4.1
+ * http://redteamux.com
+ */
+
+// Core variables and mixins
+@import "variables";
+
+// INCLUDE ALL BOOTSTRAP FILES
+//------------------------------
+
+@import "bootstrap/mixins";
+@import "avant-mixins";
+
+// Reset
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+
+// Components: common
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+@import "bootstrap/list-group";
+@import "bootstrap/wells";
+@import "bootstrap/close";
+
+// Components: Nav
+@import "bootstrap/navs";
+@import "bootstrap/button-groups";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+
+// Components: Popovers
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+
+// Components: Misc
+@import "bootstrap/alerts";
+@import "bootstrap/thumbnails";
+@import "bootstrap/media";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+@import "bootstrap/progress-bars";
+@import "bootstrap/carousel";
+@import "bootstrap/jumbotron";
+@import "bootstrap/input-groups";
+
+// Utility classes
+@import "bootstrap/utilities"; // Has to be last to override when necessary
+@import "bootstrap/responsive-utilities";
+@import "bootstrap/responsive-embed";
+
+// EXTEND BOOTSTRAP FILES WITH AVANT
+//----------------------------------
+
+@import "../fonts/font-awesome/less/font-awesome";		// FontAwesome
+
+@import "extend-core"; 	//scaffolding, type, code, grid, tables, forms, buttons
+@import "extend-common";	//dropdown, list-groups, wells, close
+@import "extend-nav";		//navs, button-groups, breadcrumbs, paginations, pager
+@import "extend-popovers"; //modals, tooltips, popovers
+@import "extend-misc";		//alerts, thumbnails, labels, badges, progressbars, input groups...
+
+// Theme Specific
+@import "layout";  		// Sidebar/Layout of the theme
+@import "topnav";			// Topnav
+@import "rightbar";		// Rightbar
+@import "leftbar";			// Leftbar
+
+@import "navbar";			// Modified navbar of Bootstrap
+@import "panels";			// Completely overhauled panels
+
+@import "tiles"; 			// Tiles Component
+@import "feeds"; 			// Feeds Component
+@import "tabs"; 			// Inline Tabs and Accordions Component
+@import "timeline";		// Timeline
+@import "yamm";			// YAMegaMenu
+@import "apps";    		// Custom plugin stylings
+
+@import "demo";			// Demo specific
+
+// Other Plugin Files
+//----------------------------------
+
+@import "../plugins/form-colorpicker/less/bootstrap-colorpicker.less";
+@import "../plugins/form-datepicker/less/datepicker3.less";
+@import "../plugins/form-jasnyupload/fileinput.less";

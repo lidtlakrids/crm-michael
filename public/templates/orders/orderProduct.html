@@ -1,0 +1,37 @@
+<div class="row orderProductPackage order-product-package"
+     data-template-bind='[{"attribute":"data-package-id","value":"PackageId"},
+                          {"attribute":"data-package-type-id","value":"PackageTypeId"},
+                          {"attribute":"data-product-price","value":"ProductPrice"},
+                          {"attribute":"data-discount","value":"Discount"},
+                          {"attribute":"data-runlength","value":"RunLength"},
+                          {"attribute":"data-payment-terms","value":"PaymentTerms"},
+                          {"attribute":"data-domain","value":"Domain"},
+                          {"attribute":"data-country-id","value":"Country_Id"},
+                          {"attribute":"data-creation-fee","value":"CreationFee"},
+                          {"attribute":"data-administration-fee","value":"AdministrationFee"},
+                          {"attribute":"data-split-fee","value":"SplitFee"},
+                          {"attribute":"data-split-admin-fee","value":"SplitAdminFee"}]'>
+    <div class="col-md-12 productPlaceholder product-placeholder panel-row">
+        <dl class="dl-horizontal-row-2">
+            <dt data-content="NameLabel"></dt>
+            <dd data-content-prepend="Name">
+                <i data-template-bind='[{"attribute":"title","value":"DeleteLabel"}]' class="fa fa-times pull-right deleteOrderProduct"></i>
+            </dd>
+            <dt data-content="CountryLabel"></dt>
+            <dd data-content="CountryName"></dd>
+            <!-- if different form main url -->
+            <dt data-content="UrlLabel"></dt>
+            <dd><a data-href="ClientUrlLink" target="_blank" data-content="ClientUrl"></a></dd>
+            <!-- end if -->
+        </dl>
+    </div>
+    <div class="col-md-12">
+        <div data-class="AllowedAddons">
+            <div class="form-horizontal PackageAddons">
+            </div>
+            <!--<button class="btn btn-sm btn-green addAddonToPackage pull-left" style="margin:5px;">Ad Groups</button>-->
+            <button class="btn btn-sm btn-green addAddonToPackage pull-right" style="margin:5px;">Add-ons</button>
+            <br/><br/>
+        </div>
+    </div>
+</div>

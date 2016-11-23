@@ -1,0 +1,26 @@
+<div class="form-horizontal">
+    <form id="editOptimizeRuleForm">
+        <input type="hidden" name="OptimizeRuleId" data-value="OptimizeRuleId">
+        <div class="form-group">
+            <label for="optimizeRule-OptimizeInterval" class="col-md-3 control-label"><strong data-content="OptimizeIntervalLabel"></strong></label>
+            <div class="col-md-8">
+                <input name="OptimizeInterval" type="number" id="optimizeRule-OptimizeInterval" class="form-control" data-value="OptimizeInterval" required="required" min="0">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="optimizeRule-TaskList_Id" class="col-md-3 control-label"><strong data-content="TaskTemplateLabel"></strong></label>
+            <div class="col-md-8">
+                <select name="TaskList_Id" type="text" id="optimizeRule-TaskList_Id" class="form-control">
+                    <option value="">Select</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="btn-toolbar">
+            <hr />
+            <input type="submit" class="btn btn-green form-control" data-value="SaveLabel">
+        </div>
+    </form>
+</div>

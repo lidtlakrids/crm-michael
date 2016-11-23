@@ -1,0 +1,123 @@
+    <div class="form-horizontal">
+        <form id="orderProductPackage">
+            <input type="hidden" name="ProductName" data-value="ProductName">
+            <input type="hidden" name="PackageId" data-value="PackageId">
+            <input type="hidden" name="PackageTypeId" data-value="PackageTypeId">
+
+            <div class="form-group">
+              <label for="orderPP-ProductPrice" data-content="PriceLabel" class="col-md-3 control-label"> </label>
+                <div class="col-sm-6">
+                    <input type="text" name="ProductPrice" data-value="ProductPrice" class="form-control" id="orderPP-ProductPrice" required="required">
+                    <input type="hidden" name="OriginalPrice" data-value="ProductPrice">
+                </div>
+                <div class="col-sm-3">
+                    <p class="help-block">$$</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="orderPP-RunLength" data-content="RunLengthLabel" class="col-md-3 control-label"></label>
+                <div class="col-sm-6">
+                    <input type="number" name="RunLength" data-value="RunLength" class="form-control" id="orderPP-RunLength" min="1" required="required">
+                    <input type="hidden" name="DefaultRunLength" data-value="RunLength" >
+                </div>
+                <div class="col-sm-3">
+                    <p class="help-block">Months</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="orderPP-PaymentTerms" data-content="PaymentTermsLabel" class="col-md-3 control-label"></label>
+                <div class="col-sm-6">
+                    <select name="PaymentTerms" id="orderPP-PaymentTerms" data-options="PaymentTerms" class="form-control">
+                    </select>
+                    <input type="hidden" name="DefaultTerms" data-value="DefaultTerms">
+                </div>
+                <div class="col-sm-3">
+                    <p class="help-block">(default 3 month)</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="orderPP-Discount" class="col-md-3 control-label" data-content="DiscountLabel"></label>
+                <div class="col-sm-6">
+                    <input type="number" name="Discount" max="100" min="0" class="form-control" id="orderPP-Discount">
+                </div>
+                <div class="col-sm-3">
+                    <p class="help-block">%</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="orderPP-AdministrationFee" class="col-md-3 control-label">Administration Fee</label>
+                <div class="col-sm-6">
+                    <input type="number" name="AdministrationFee" min="0" data-value="AdministrationFee" class="form-control" id="orderPP-AdministrationFee" required="required">
+                    <input type="hidden" name="DefaultAdministrationFee" data-value="AdministrationFee">
+
+                </div>
+                <div class="col-sm-3">
+                    <p class="help-block">dkk</p>
+                </div>
+            </div>
+
+            <div class="form-group" data-class="SplitAdminFeeHidden">
+                <label for="orderPP-AdministrationFeeSplit" class="col-md-3 control-label">Split administration fee</label>
+                <div class="col-sm-6">
+                    <input type="checkbox" name="AdministrationFeeSplit" class="form-control" id="orderPP-AdministrationFeeSplit">
+                </div>
+                <div class="col-sm-3">
+                    <p class="help-block">If checked, the Administration fee will be split between first 2 invoices</p>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="orderPP-CreationFee" class="col-md-3 control-label">Start Fee</label>
+                <div class="col-sm-6">
+                    <input type="number" name="CreationFee" min="0" required="required" data-value="CreationFee" class="form-control" id="orderPP-CreationFee">
+                    <input type="hidden" name="DefaultCreationFee" data-value="CreationFee">
+
+                </div>
+                <div class="col-sm-3">
+                    <p class="help-block">dkk</p>
+                </div>
+            </div>
+
+            <div class="form-group" data-class="SplitCreationFeeHidden">
+                <label for="orderPP-SplitFee" class="col-md-3 control-label">Split start fee</label>
+                <div class="col-sm-6">
+                    <input type="checkbox" name="CreationFeeSplit" class="form-control" id="orderPP-SplitFee">
+                </div>
+                <div class="col-sm-3">
+                    <p class="help-block">If checked, the creation fee will be split between first 2 invoices</p>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="orderPP-Domain" class="col-md-3 control-label" data-content="DomainLabel"></label>
+                <div class="col-sm-6">
+                    <input type="text" name="ppDomain" placeholder="http://" class="form-control" id="orderPP-Domain">
+                </div>
+                <div class="col-sm-3">
+                    <p class="help-block">If different</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="orderPP-Country" data-content="CountryLabel" class="col-md-3 control-label"></label>
+                <div class="col-sm-6">
+                    <select name="Country_Id" id="orderPP-Country" class="form-control">
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <p class="help-block">Default DK</p>
+                </div>
+            </div>
+
+            <div class="btn-toolbar">
+                <hr />
+                <input type="submit" class="btn btn-orange btn-label form-control" data-value="SaveLabel">
+            </div>
+        </form>
+    </div>

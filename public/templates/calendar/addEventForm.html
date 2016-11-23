@@ -1,0 +1,74 @@
+<div class="form-horizontal">
+<form id="createEventForm">
+    <input type="hidden" name="Model" data-value="Model">
+    <input type="hidden" name="ModelId" data-value="ModelId">
+
+    <div class="form-group">
+        <label for="event-Type" class="col-md-3 control-label"><strong data-content="TypeLabel"></strong></label>
+        <div class="col-md-8">
+            <select name="EventType" id="event-Type" class="form-control" required="required" data-options="EventTypes">
+                <option value="">Select</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="event-Summary" class="col-md-3 control-label"><strong data-content="SummaryLabel"></strong></label>
+        <div class="col-md-8">
+            <input name="Summary" type="text" id="event-Summary" class="form-control" required="required">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="event-description" class="col-md-3 control-label"><strong data-content="DescriptionLabel"></strong></label>
+        <div class="col-md-8">
+            <textarea name="Description" id="event-description" class="form-control"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="event-time" class="col-sm-3 control-label" data-content="TimeLabel"></label>
+        <div class="col-md-8">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+            <input name="time" type="text" class="form-control" id="event-time" style="background-color: white;cursor: pointer;"  readonly="readonly">
+                </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="event-time" class="col-sm-3 control-label" data-content="AttendeesLabel"></label>
+        <div class="col-md-6">
+            <input type="email" class="form-control" id="event-addAttendee">
+        </div>
+        <div class="col-md-2"><button type="button" id="addEventAttendee">Add</button> </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-5 col-md-offset-3">
+            <div class="attendeesPlaceholder"></div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="checkbox" data-content="OptionsLabel">
+
+        </label>
+        <div class="col-sm-6">
+            <div class="checkbox block">
+                <label data-content-append="NotifyAttendeesLabel">
+                    <input type="checkbox" checked name="NotifyAttendees" id="event-notifyAttendees">
+                </label>
+            </div>
+            <div class="checkbox block">
+                <label data-content-append="CreateOnGoogleLabel">
+                    <input type="checkbox" checked name="CreateOnGoogleCalendar" id="event-CreateOnGoogle">
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-toolbar">
+        <hr />
+        <input type="submit" class="btn btn-green form-control" data-value="CreateLabel">
+    </div>
+</form>
+</div>

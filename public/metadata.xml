@@ -1,0 +1,2910 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+  <asd>
+    <Schema Namespace="webapi.Models" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="Notification">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Model" Type="Edm.String" />
+        <Property Name="ModelId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Recipient_Id" Type="Edm.String" />
+        <Property Name="Creator_Id" Type="Edm.String" />
+        <Property Name="Content" Type="Edm.String" />
+        <Property Name="Title" Type="Edm.String" />
+        <Property Name="Read" Type="Edm.DateTimeOffset" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="IconHtml" Type="Edm.String" />
+        <NavigationProperty Name="Recipient" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="Recipient_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Creator" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="Creator_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="Client">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="CINumber" Type="Edm.String" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="ClientManager_Id" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <NavigationProperty Name="ClientAlias" Type="Collection(webapi.Models.ClientAlias)" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ClientManager" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="ClientManager_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="ClientAlias">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Homepage" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="zip" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Client_Id" Type="Edm.Int32" />
+        <Property Name="Country_Id" Type="Edm.Int32" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="PhoneNumber" Type="Edm.String" />
+        <Property Name="EMail" Type="Edm.String" />
+        <Property Name="CompanyEmail" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="Class" Type="Edm.String" />
+        <Property Name="Potential" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Taxonomy_Id" Type="Edm.Int32" />
+        <Property Name="AnalyticsId" Type="Edm.String" />
+        <Property Name="Subscribed" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="AdwordsId" Type="Edm.String" />
+        <Property Name="Ean" Type="Edm.String" />
+        <Property Name="Lead_Id" Type="Edm.Int32" />
+        <Property Name="EconId" Type="Edm.String" />
+        <Property Name="Partner_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="Client" Type="webapi.Models.Client">
+          <ReferentialConstraint Property="Client_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Country" Type="webapi.Models.Country">
+          <ReferentialConstraint Property="Country_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Contact" Type="Collection(webapi.Models.Contact)" />
+        <NavigationProperty Name="Order" Type="Collection(webapi.Models.Order)" />
+        <NavigationProperty Name="Contract" Type="Collection(webapi.Models.Contract)" />
+        <NavigationProperty Name="Draft" Type="Collection(webapi.Models.Draft)" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Invoice" Type="Collection(webapi.Models.Invoice)" />
+        <NavigationProperty Name="Taxonomy" Type="webapi.Models.Taxonomy">
+          <ReferentialConstraint Property="Taxonomy_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Lead" Type="webapi.Models.Lead">
+          <ReferentialConstraint Property="Lead_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Partner" Type="webapi.Models.Partner">
+          <ReferentialConstraint Property="Partner_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="ApplicationUser">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="UserName" Type="Edm.String" />
+        <Property Name="Password" Type="Edm.String" />
+        <Property Name="Active" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="EmployeeLocalNumber" Type="Edm.Int32" />
+        <Property Name="FullName" Type="Edm.String" />
+        <Property Name="Title_Id" Type="Edm.Int32" />
+        <Property Name="Birthdate" Type="Edm.DateTimeOffset" />
+        <Property Name="NearestRelatives" Type="Edm.String" />
+        <Property Name="PrivatePhone" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="MyFoneUserName" Type="Edm.String" />
+        <Property Name="MyFonePassword" Type="Edm.String" />
+        <Property Name="Device" Type="Edm.Int32" />
+        <Property Name="SalaryGroup_Id" Type="Edm.Int32" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Econ_Id" Type="Edm.Int32" />
+        <Property Name="DepartmentNumber" Type="Edm.String" />
+        <Property Name="Quitted" Type="Edm.DateTimeOffset" />
+        <Property Name="Email" Type="Edm.String" />
+        <Property Name="EmailConfirmed" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="PhoneNumber" Type="Edm.String" />
+        <Property Name="PhoneNumberConfirmed" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="TwoFactorEnabled" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="LockoutEndDateUtc" Type="Edm.DateTimeOffset" />
+        <Property Name="LockoutEnabled" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="AccessFailedCount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Logins" Type="Collection(webapi.Models.ApplicationUserLogin)" />
+        <Property Name="Id" Type="Edm.String" Nullable="false" />
+        <NavigationProperty Name="TimeRegistration" Type="Collection(webapi.Models.TimeRegistration)" />
+        <NavigationProperty Name="ManagerTeam" Type="Collection(webapi.Models.ManagerTeam)" />
+        <NavigationProperty Name="UserRoles" Type="Collection(webapi.Models.ApplicationUserRole)" />
+        <NavigationProperty Name="Title" Type="webapi.Models.UserTitle">
+          <ReferentialConstraint Property="Title_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="SalaryGroup" Type="webapi.Models.SalaryGroup">
+          <ReferentialConstraint Property="SalaryGroup_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Comments" Type="Collection(webapi.Models.Comment)" />
+        <NavigationProperty Name="Roles" Type="Collection(webapi.Models.ApplicationUserRole)" />
+        <NavigationProperty Name="Claims" Type="Collection(webapi.Models.ApplicationUserClaim)" />
+      </EntityType>
+      <EntityType Name="UserTitle">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <NavigationProperty Name="Users" Type="Collection(webapi.Models.ApplicationUser)" />
+      </EntityType>
+      <EntityType Name="Contact">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <Property Name="Email" Type="Edm.String" />
+        <Property Name="Phone" Type="Edm.String" />
+        <Property Name="ClientAlias_Id" Type="Edm.Int32" />
+        <Property Name="JobFunction" Type="Edm.String" />
+        <Property Name="Department" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Birthdate" Type="Edm.DateTimeOffset" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="Invoice_Mail" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Facebook" Type="Edm.String" />
+        <Property Name="LinkedIn" Type="Edm.String" />
+        <Property Name="MainContact" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="ReceiveReports" Type="Edm.Boolean" Nullable="false" />
+        <NavigationProperty Name="ClientAlias" Type="webapi.Models.ClientAlias">
+          <ReferentialConstraint Property="ClientAlias_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="Contract">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ClientAlias_Id" Type="Edm.Int32" />
+        <Property Name="Domain" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="Status" Type="webapi.Models.ContractStatus" Nullable="false" />
+        <Property Name="StartDate" Type="Edm.DateTimeOffset" />
+        <Property Name="EndDate" Type="Edm.DateTimeOffset" />
+        <Property Name="Manager_Id" Type="Edm.String" />
+        <Property Name="ManagerTeam_Id" Type="Edm.Int32" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Country_Id" Type="Edm.Int32" />
+        <Property Name="OriginalOrder_Id" Type="Edm.Int32" />
+        <Property Name="NeedInformation" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Priority" Type="webapi.Models.ContractPriority" Nullable="false" />
+        <Property Name="RunLength" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PaymentTerm" Type="webapi.Models.ContractTerms" Nullable="false" />
+        <Property Name="Product_Id" Type="Edm.Int32" />
+        <Property Name="ProductPackage_Id" Type="Edm.Int32" />
+        <Property Name="Discount" Type="Edm.Double" Nullable="false" />
+        <Property Name="Parent_Id" Type="Edm.Int32" />
+        <Property Name="ContractType_Id" Type="Edm.Int32" />
+        <Property Name="Partner_Id" Type="Edm.Int32" />
+        <Property Name="NextOptimize" Type="Edm.DateTimeOffset" />
+        <Property Name="AnalyticsId" Type="Edm.String" />
+        <Property Name="AdwordsId" Type="Edm.String" />
+        <NavigationProperty Name="ClientAlias" Type="webapi.Models.ClientAlias">
+          <ReferentialConstraint Property="ClientAlias_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Activity" Type="Collection(webapi.Models.ContractActivity)" />
+        <NavigationProperty Name="Manager" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="Manager_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ManagerTeam" Type="webapi.Models.ManagerTeam">
+          <ReferentialConstraint Property="ManagerTeam_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Country" Type="webapi.Models.Country">
+          <ReferentialConstraint Property="Country_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ContractOption" Type="webapi.Models.ContractOption" />
+        <NavigationProperty Name="OriginalOrder" Type="webapi.Models.Order">
+          <ReferentialConstraint Property="OriginalOrder_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Order" Type="Collection(webapi.Models.Order)" />
+        <NavigationProperty Name="FieldValues" Type="Collection(webapi.Models.ContractFieldValue)" />
+        <NavigationProperty Name="Product" Type="webapi.Models.Product">
+          <ReferentialConstraint Property="Product_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ProductPackage" Type="webapi.Models.ProductPackage">
+          <ReferentialConstraint Property="ProductPackage_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Parent" Type="webapi.Models.Contract">
+          <ReferentialConstraint Property="Parent_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Children" Type="Collection(webapi.Models.Contract)" />
+        <NavigationProperty Name="ContractType" Type="webapi.Models.ProductType">
+          <ReferentialConstraint Property="ContractType_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Partner" Type="webapi.Models.Partner">
+          <ReferentialConstraint Property="Partner_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="DraftLines" Type="Collection(webapi.Models.DraftLine)" />
+        <NavigationProperty Name="InvoiceLines" Type="Collection(webapi.Models.InvoiceLine)" />
+        <NavigationProperty Name="InformationSchemes" Type="Collection(webapi.Models.InformationScheme)" />
+      </EntityType>
+      <EntityType Name="CalendarEvent">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Start" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="End" Type="Edm.DateTimeOffset" />
+        <Property Name="Summary" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Booker_Id" Type="Edm.String" />
+        <Property Name="NotifyAttendees" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="ModelId" Type="Edm.Int32" />
+        <Property Name="Model" Type="Edm.String" />
+        <Property Name="HtmlLink" Type="Edm.String" />
+        <Property Name="GoogleId" Type="Edm.String" />
+        <Property Name="IsCreated" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="EventType" Type="webapi.Models.EventType" Nullable="false" />
+        <Property Name="ClientName" Type="Edm.String" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Booker" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="Booker_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Attendees" Type="Collection(webapi.Models.CalendarAttendee)" />
+        <NavigationProperty Name="Source" Type="webapi.Models.CalendarSource" />
+        <NavigationProperty Name="Activity" Type="Collection(webapi.Models.AppointmentActivity)" />
+      </EntityType>
+      <EntityType Name="CalendarAttendee">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="DisplayName" Type="Edm.String" />
+        <Property Name="EMail" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="CalendarSource">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Title" Type="Edm.String" />
+        <Property Name="Url" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="DraftLine">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Draft_Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Quantity" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UnitPrice" Type="Edm.Double" Nullable="false" />
+        <Property Name="VatRate" Type="Edm.Double" Nullable="false" />
+        <Property Name="PayDate" Type="Edm.DateTimeOffset" />
+        <Property Name="Discount" Type="Edm.Double" Nullable="false" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Product_Id" Type="Edm.Int32" />
+        <Property Name="Contract_Id" Type="Edm.Int32" />
+        <Property Name="ReminderInvoice_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="Draft" Type="webapi.Models.Draft" Nullable="false">
+          <ReferentialConstraint Property="Draft_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Product" Type="webapi.Models.Product">
+          <ReferentialConstraint Property="Product_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Contract" Type="webapi.Models.Contract">
+          <ReferentialConstraint Property="Contract_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="Draft">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Status" Type="webapi.Models.DraftStatus" Nullable="false" />
+        <Property Name="NoticeAccountant" Type="Edm.DateTimeOffset" />
+        <Property Name="ClientAlias_Id" Type="Edm.Int32" />
+        <Property Name="Contract_Id" Type="Edm.Int32" />
+        <Property Name="Type" Type="webapi.Models.InvoiceType" Nullable="false" />
+        <Property Name="CreditnoteOriginalInvoiceId" Type="Edm.Int32" />
+        <Property Name="ReminderType" Type="webapi.Models.ReminderType" Nullable="false" />
+        <NavigationProperty Name="ClientAlias" Type="webapi.Models.ClientAlias">
+          <ReferentialConstraint Property="ClientAlias_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="DraftLine" Type="Collection(webapi.Models.DraftLine)" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Contract" Type="webapi.Models.Contract">
+          <ReferentialConstraint Property="Contract_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="Country">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PhoneExtension" Type="Edm.String" />
+        <Property Name="CountryCode" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <Property Name="VatRate" Type="Edm.Double" Nullable="false" />
+        <Property Name="ConnectionString" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="Order">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="ClientAlias_Id" Type="Edm.Int32" />
+        <Property Name="OrderType_Id" Type="Edm.Int32" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="ConfirmedDate" Type="Edm.DateTimeOffset" />
+        <Property Name="ApprovedDate" Type="Edm.DateTimeOffset" />
+        <Property Name="ApprovedBy_Id" Type="Edm.String" />
+        <Property Name="ConfirmedIP" Type="Edm.String" />
+        <Property Name="ArchivedDate" Type="Edm.DateTimeOffset" />
+        <Property Name="HashCode" Type="Edm.String" />
+        <Property Name="Invoice_Id" Type="Edm.Int32" />
+        <Property Name="Domain" Type="Edm.String" Nullable="false" />
+        <Property Name="ParentOrderId" Type="Edm.Int32" />
+        <Property Name="ConfirmMailSend" Type="Edm.DateTimeOffset" />
+        <Property Name="Status" Type="webapi.Models.OrderStatus" Nullable="false" />
+        <NavigationProperty Name="ClientAlias" Type="webapi.Models.ClientAlias">
+          <ReferentialConstraint Property="ClientAlias_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="OrderFieldValue" Type="Collection(webapi.Models.OrderFieldValue)" />
+        <NavigationProperty Name="OrderProduct" Type="Collection(webapi.Models.OrderProduct)" />
+        <NavigationProperty Name="OrderProductPackage" Type="Collection(webapi.Models.OrderProductPackage)" />
+        <NavigationProperty Name="OrderType" Type="webapi.Models.OrderType">
+          <ReferentialConstraint Property="OrderType_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ApprovedBy" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="ApprovedBy_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Invoice" Type="webapi.Models.Invoice">
+          <ReferentialConstraint Property="Invoice_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Parent" Type="webapi.Models.Order">
+          <ReferentialConstraint Property="ParentOrderId" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Children" Type="Collection(webapi.Models.Order)" />
+        <NavigationProperty Name="Contracts" Type="Collection(webapi.Models.Contract)" />
+      </EntityType>
+      <EntityType Name="Product">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="SalePrice" Type="Edm.Double" Nullable="false" />
+        <Property Name="RecommendedPrice" Type="Edm.Double" />
+        <Property Name="CostPrice" Type="Edm.Double" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Active" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="ProductCommission" Type="Edm.Double" />
+        <Property Name="EconomicID" Type="Edm.String" />
+        <Property Name="ProductDepartment_Id" Type="Edm.Int32" />
+        <Property Name="ProductType_Id" Type="Edm.Int32" />
+        <Property Name="ContractOption_Id" Type="Edm.Int32" />
+        <Property Name="OptimizeInterval" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Number" Type="Edm.Int32" Nullable="false" />
+        <Property Name="TimeAllowance" Type="Edm.Double" />
+        <NavigationProperty Name="ProductDepartment" Type="webapi.Models.ProductDepartment">
+          <ReferentialConstraint Property="ProductDepartment_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ProductType" Type="webapi.Models.ProductType">
+          <ReferentialConstraint Property="ProductType_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ContractOption" Type="webapi.Models.ContractOption">
+          <ReferentialConstraint Property="ContractOption_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="OptimizeRule" Type="Collection(webapi.Models.OptimizeRule)" />
+      </EntityType>
+      <EntityType Name="ContractOption">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="StartMethod" Type="webapi.Models.ContractOptionValues" Nullable="false" />
+      </EntityType>
+      <EntityType Name="Partner">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Homepage" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="zip" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Country_Id" Type="Edm.Int32" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="PhoneNumber" Type="Edm.String" />
+        <Property Name="EMail" Type="Edm.String" />
+        <NavigationProperty Name="Country" Type="webapi.Models.Country">
+          <ReferentialConstraint Property="Country_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ClientAlias" Type="Collection(webapi.Models.ClientAlias)" />
+        <NavigationProperty Name="Leads" Type="Collection(webapi.Models.Lead)" />
+      </EntityType>
+      <EntityType Name="ProductDepartment">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="ProductPackage">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Active" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Size" Type="webapi.Models.PackageSize" Nullable="false" />
+        <Property Name="MaxBudget" Type="Edm.Double" Nullable="false" />
+        <Property Name="CostPrice" Type="Edm.Double" Nullable="false" />
+        <Property Name="AdministrationFee" Type="Edm.Double" />
+        <Property Name="AdministrationFeeText" Type="Edm.String" />
+        <Property Name="AdministrationFeeSplitable" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="AddonCount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Product_Id" Type="Edm.Int32" />
+        <Property Name="DefaultRunlength" Type="Edm.Int32" />
+        <Property Name="DefaultPaymentTerm" Type="webapi.Models.ContractTerms" Nullable="false" />
+        <Property Name="CreationFee" Type="Edm.Double" />
+        <Property Name="CreationFeeText" Type="Edm.String" />
+        <Property Name="CreationFeeSplitable" Type="Edm.Boolean" Nullable="false" />
+        <NavigationProperty Name="Products" Type="Collection(webapi.Models.ProductProductPackage)" />
+        <NavigationProperty Name="Product" Type="webapi.Models.Product">
+          <ReferentialConstraint Property="Product_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="ProductType">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Unique" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="EconomicProductGroup" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="Invoice">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="HashCode" Type="Edm.String" />
+        <Property Name="InvoiceNumber" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Payed" Type="Edm.DateTimeOffset" />
+        <Property Name="Due" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="ZipCode" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="OCR" Type="Edm.String" />
+        <Property Name="VatAmount" Type="Edm.Double" Nullable="false" />
+        <Property Name="Source" Type="webapi.Models.CreationSource" Nullable="false" />
+        <Property Name="Status" Type="webapi.Models.InvoiceStatus" Nullable="false" />
+        <Property Name="NetAmount" Type="Edm.Double" />
+        <Property Name="Type" Type="webapi.Models.InvoiceType" Nullable="false" />
+        <Property Name="MailSent" Type="Edm.DateTimeOffset" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Order_Id" Type="Edm.Int32" />
+        <Property Name="ClientAlias_Id" Type="Edm.Int32" />
+        <Property Name="CreditnoteOriginalInvoiceId" Type="Edm.Int32" />
+        <Property Name="ReminderType" Type="webapi.Models.ReminderType" Nullable="false" />
+        <Property Name="TransactionId" Type="Edm.String" />
+        <NavigationProperty Name="ClientAlias" Type="webapi.Models.ClientAlias">
+          <ReferentialConstraint Property="ClientAlias_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Country" Type="webapi.Models.Country" />
+        <NavigationProperty Name="InvoiceLine" Type="Collection(webapi.Models.InvoiceLine)" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Contract" Type="webapi.Models.Contract" />
+      </EntityType>
+      <EntityType Name="InvoiceLine">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Invoice_Id" Type="Edm.Int32" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Status" Type="webapi.Models.InvoiceLineStatus" />
+        <Property Name="Quantity" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UnitPrice" Type="Edm.Double" Nullable="false" />
+        <Property Name="VatRate" Type="Edm.Double" Nullable="false" />
+        <Property Name="PayDate" Type="Edm.DateTimeOffset" />
+        <Property Name="Commission" Type="Edm.Double" />
+        <Property Name="Discount" Type="Edm.Double" Nullable="false" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Contract_Id" Type="Edm.Int32" />
+        <Property Name="Product_Id" Type="Edm.Int32" />
+        <Property Name="ReminderInvoice_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="Invoice" Type="webapi.Models.Invoice">
+          <ReferentialConstraint Property="Invoice_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Contract" Type="webapi.Models.Contract">
+          <ReferentialConstraint Property="Contract_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Product" Type="webapi.Models.Product">
+          <ReferentialConstraint Property="Product_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="OrderFieldValue">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="OrderField_Id" Type="Edm.Int32" />
+        <Property Name="value" Type="Edm.String" />
+        <NavigationProperty Name="OrderField" Type="webapi.Models.OrderField">
+          <ReferentialConstraint Property="OrderField_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="OrderProduct">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Product_Id" Type="Edm.Int32" />
+        <Property Name="ProductPrice" Type="Edm.Double" Nullable="false" />
+        <Property Name="Discount" Type="Edm.Double" Nullable="false" />
+        <Property Name="RunLength" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PaymentTerms" Type="webapi.Models.ContractTerms" Nullable="false" />
+        <Property Name="PartOfPackage" Type="Edm.Boolean" Nullable="false" />
+        <NavigationProperty Name="Product" Type="webapi.Models.Product">
+          <ReferentialConstraint Property="Product_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Order" Type="webapi.Models.Order" />
+      </EntityType>
+      <EntityType Name="OrderType">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="FormName" Type="Edm.String" />
+        <Property Name="Type_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="Type" Type="webapi.Models.ProductType">
+          <ReferentialConstraint Property="Type_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="OrderTypeOrderField" Type="Collection(webapi.Models.OrderTypeOrderField)" />
+      </EntityType>
+      <EntityType Name="OrderField">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="DisplayName" Type="Edm.String" />
+        <Property Name="ValueName" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Active" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Required" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Special" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="OrderFieldType" Type="webapi.Models.OrderFieldType" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <NavigationProperty Name="OrderFieldOption" Type="Collection(webapi.Models.OrderFieldOption)" />
+      </EntityType>
+      <EntityType Name="OrderFieldOption">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="DisplayName" Type="Edm.String" Nullable="false" />
+        <Property Name="Value" Type="Edm.String" />
+        <Property Name="SortOrder" Type="Edm.Int32" Nullable="false" />
+        <Property Name="OrderField_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="OrderField" Type="webapi.Models.OrderField">
+          <ReferentialConstraint Property="OrderField_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="OrderTypeOrderField">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="OrderType_Id" Type="Edm.Int32" />
+        <Property Name="OrderField_Id" Type="Edm.Int32" />
+        <Property Name="PageNumber" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SortOrder" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="OrderType" Type="webapi.Models.OrderType">
+          <ReferentialConstraint Property="OrderType_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="OrderField" Type="webapi.Models.OrderField">
+          <ReferentialConstraint Property="OrderField_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="PhoneStatistic">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="AccountId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UniqueCallId" Type="Edm.String" />
+        <Property Name="EmployeeLocalNumber" Type="Edm.Int32" />
+        <Property Name="ANumber" Type="Edm.String" />
+        <Property Name="TimeStamp" Type="Edm.DateTimeOffset" />
+        <Property Name="PhoneLocalNumber" Type="Edm.Int32" />
+        <Property Name="Duration" Type="Edm.Int32" />
+        <Property Name="Transfer" Type="Edm.Boolean" />
+        <Property Name="CallDirection" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="ARO">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Model" Type="webapi.Models.Model" Nullable="false" />
+        <Property Name="ForeignKey" Type="Edm.String" />
+        <Property Name="Alias" Type="Edm.String" />
+        <NavigationProperty Name="Aroaco" Type="Collection(webapi.Models.AROACO)" />
+      </EntityType>
+      <EntityType Name="ACO">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Controller" Type="Edm.String" />
+        <Property Name="Method" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <NavigationProperty Name="Aroaco" Type="Collection(webapi.Models.AROACO)" />
+      </EntityType>
+      <EntityType Name="AROACO">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ACO_Id" Type="Edm.Int32" />
+        <Property Name="ARO_Id" Type="Edm.Int32" />
+        <Property Name="Allowed" Type="Edm.Boolean" Nullable="false" />
+        <NavigationProperty Name="ACO" Type="webapi.Models.ACO">
+          <ReferentialConstraint Property="ACO_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ARO" Type="webapi.Models.ARO">
+          <ReferentialConstraint Property="ARO_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="ApplicationRole">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Default" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Id" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <NavigationProperty Name="Users" Type="Collection(webapi.Models.ApplicationUserRole)" />
+      </EntityType>
+      <EntityType Name="ApplicationUserRole">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UserId" Type="Edm.String" />
+        <Property Name="RoleId" Type="Edm.String" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser" />
+        <NavigationProperty Name="Role" Type="webapi.Models.ApplicationRole" />
+      </EntityType>
+      <EntityType Name="TaskList">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Model" Type="Edm.String" />
+        <Property Name="Title" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="ModelId" Type="Edm.Int32" />
+        <Property Name="Active" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Value" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="CreatedBy_Id" Type="Edm.String" />
+        <Property Name="AssignedTo_Id" Type="Edm.String" />
+        <Property Name="StartTime" Type="Edm.DateTimeOffset" />
+        <Property Name="DueTime" Type="Edm.DateTimeOffset" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="EndTime" Type="Edm.DateTimeOffset" />
+        <Property Name="ParentTaskListId" Type="Edm.Int32" />
+        <Property Name="SortOrder" Type="Edm.Int32" Nullable="false" />
+        <Property Name="NotifyCreator" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="CompletedBy_Id" Type="Edm.String" />
+        <NavigationProperty Name="CreatedBy" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="CreatedBy_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="AssignedTo" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="AssignedTo_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Parent" Type="webapi.Models.TaskList">
+          <ReferentialConstraint Property="ParentTaskListId" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Children" Type="Collection(webapi.Models.TaskList)" />
+        <NavigationProperty Name="CompletedBy" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="CompletedBy_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="TimeRegistration">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="CheckIn" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="CheckOut" Type="Edm.DateTimeOffset" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Status" Type="webapi.Models.TimeRegistrationEnum" Nullable="false" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="BreakRegistration" Type="Collection(webapi.Models.BreakRegistration)" />
+      </EntityType>
+      <EntityType Name="Lead">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="AnalyticsId" Type="Edm.String" />
+        <Property Name="Website" Type="Edm.String" Nullable="false" />
+        <Property Name="Email" Type="Edm.String" />
+        <Property Name="Company" Type="Edm.String" />
+        <Property Name="CINumber" Type="Edm.String" />
+        <Property Name="Country_Id" Type="Edm.Int32" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="Status" Type="webapi.Models.LeadStatus" Nullable="false" />
+        <Property Name="Source" Type="webapi.Models.LeadSource" Nullable="false" />
+        <Property Name="PhoneNumber" Type="Edm.String" />
+        <Property Name="Type" Type="webapi.Models.LeadType" Nullable="false" />
+        <Property Name="AdwordsId" Type="Edm.String" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="UserSource_Id" Type="Edm.String" />
+        <Property Name="ContactPerson" Type="Edm.String" />
+        <Property Name="ContactPhone" Type="Edm.String" />
+        <Property Name="ContactEmail" Type="Edm.String" />
+        <Property Name="TextSource" Type="Edm.String" />
+        <Property Name="Booker_Id" Type="Edm.String" />
+        <Property Name="Partner_Id" Type="Edm.Int32" />
+        <Property Name="Taxonomy_Id" Type="Edm.Int32" />
+        <Property Name="hitCount" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="Country" Type="webapi.Models.Country">
+          <ReferentialConstraint Property="Country_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Phone" Type="webapi.Models.PhoneNumber" />
+        <NavigationProperty Name="Ads" Type="Collection(webapi.Models.Ads)" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="UserSource" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="UserSource_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Booker" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="Booker_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Partner" Type="webapi.Models.Partner">
+          <ReferentialConstraint Property="Partner_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Taxonomy" Type="webapi.Models.Taxonomy">
+          <ReferentialConstraint Property="Taxonomy_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="PhoneNumber">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Number" Type="Edm.String" />
+        <NavigationProperty Name="Country" Type="webapi.Models.Country" />
+      </EntityType>
+      <EntityType Name="Public">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.String" Nullable="false" />
+      </EntityType>
+      <EntityType Name="Setting">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <Property Name="Model" Type="Edm.String" Nullable="false" />
+        <Property Name="Active" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Value" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="TaskListTemplate">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Title" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="ParentTaskListId" Type="Edm.Int32" />
+        <Property Name="Author_Id" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="NotifyCreator" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="AssignedTo_Id" Type="Edm.String" />
+        <NavigationProperty Name="Parent" Type="webapi.Models.TaskListTemplate">
+          <ReferentialConstraint Property="ParentTaskListId" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Children" Type="Collection(webapi.Models.TaskListTemplate)" />
+        <NavigationProperty Name="Author" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="Author_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="AssignedTo" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="AssignedTo_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="Comment">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Message" Type="Edm.String" />
+        <Property Name="Model" Type="Edm.String" />
+        <Property Name="ModelId" Type="Edm.Int32" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="ParentCommentId" Type="Edm.Int32" />
+        <Property Name="Type" Type="webapi.Models.CommentType" Nullable="false" />
+        <Property Name="Hidden" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Sticky" Type="Edm.Boolean" Nullable="false" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Parent" Type="webapi.Models.Comment">
+          <ReferentialConstraint Property="ParentCommentId" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Children" Type="Collection(webapi.Models.Comment)" />
+        <NavigationProperty Name="ContractActivity" Type="Collection(webapi.Models.ContractActivity)" />
+      </EntityType>
+      <EntityType Name="ManagerTeam">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="TeamType" Type="webapi.Models.ManagerTeamType" Nullable="false" />
+        <NavigationProperty Name="Users" Type="Collection(webapi.Models.ApplicationUser)" />
+      </EntityType>
+      <EntityType Name="Template">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="TemplateData" Type="Edm.String" />
+        <Property Name="Model" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="Statistic">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Month" Type="Edm.String" />
+        <Property Name="NetAmount" Type="Edm.Double" Nullable="false" />
+        <Property Name="Commission" Type="Edm.Double" Nullable="false" />
+        <Property Name="InvoiceNumber" Type="Edm.Int32" Nullable="false" />
+      </EntityType>
+      <EntityType Name="Ads">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SearchWord" Type="Edm.String" />
+        <Property Name="SearchWord2" Type="Edm.String" />
+        <Property Name="Position" Type="Edm.Int32" Nullable="false" />
+        <Property Name="url" Type="Edm.String" />
+        <Property Name="AdText" Type="Edm.String" />
+        <Property Name="ShowUri" Type="Edm.String" />
+        <Property Name="lastStatusCode" Type="Edm.Int32" Nullable="false" />
+        <Property Name="hitCount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="firstUserName" Type="Edm.String" />
+        <Property Name="headLine" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="lastUserName" Type="Edm.String" />
+        <Property Name="lastUpdateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="AnalyticsId" Type="Edm.String" />
+        <Property Name="LeadId" Type="Edm.Int32" />
+        <Property Name="DestUri" Type="Edm.String" />
+        <NavigationProperty Name="Lead" Type="webapi.Models.Lead">
+          <ReferentialConstraint Property="LeadId" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="FileStorage">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="Author_Id" Type="Edm.String" />
+        <Property Name="VirtualPath" Type="Edm.String" />
+        <Property Name="Size" Type="Edm.Int64" Nullable="false" />
+        <Property Name="Model" Type="Edm.String" />
+        <Property Name="ModelId" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="Author" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="Author_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="DetailedLog">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Model" Type="Edm.String" />
+        <Property Name="ModelId" Type="Edm.String" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="OriginalObject" Type="Edm.String" />
+        <Property Name="Changes" Type="Edm.String" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="Log">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Module" Type="Edm.String" />
+        <Property Name="Error" Type="Edm.String" />
+        <Property Name="ItemId" Type="Edm.Int32" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="Seen" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="Reminder">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ClientAlias_Id" Type="Edm.Int32" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="MailSent" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Subject" Type="Edm.String" />
+        <Property Name="Content" Type="Edm.String" />
+        <NavigationProperty Name="ClientAlias" Type="webapi.Models.ClientAlias">
+          <ReferentialConstraint Property="ClientAlias_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ReminderInvoice" Type="Collection(webapi.Models.ReminderInvoice)" />
+      </EntityType>
+      <EntityType Name="InformationScheme">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="Contract_Id" Type="Edm.Int32" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Type_Id" Type="Edm.Int32" />
+        <Property Name="ConfirmDate" Type="Edm.DateTimeOffset" />
+        <Property Name="MailSent" Type="Edm.DateTimeOffset" />
+        <Property Name="HashCode" Type="Edm.String" />
+        <Property Name="ApprovedDate" Type="Edm.DateTimeOffset" />
+        <NavigationProperty Name="Contract" Type="webapi.Models.Contract">
+          <ReferentialConstraint Property="Contract_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Type" Type="webapi.Models.OrderType">
+          <ReferentialConstraint Property="Type_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="FieldValue" Type="Collection(webapi.Models.OrderFieldValue)" />
+        <NavigationProperty Name="Products" Type="Collection(webapi.Models.InformationSchemeProducts)" />
+      </EntityType>
+      <EntityType Name="SalaryGroup">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Salary" Type="Edm.Double" Nullable="false" />
+        <Property Name="MinimumTurnover" Type="Edm.Double" Nullable="false" />
+        <Property Name="BonusProcentage" Type="Edm.Double" Nullable="false" />
+        <NavigationProperty Name="Rates" Type="Collection(webapi.Models.ClientRate)" />
+        <NavigationProperty Name="Users" Type="Collection(webapi.Models.ApplicationUser)" />
+      </EntityType>
+      <EntityType Name="ClientRate">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Rate" Type="Edm.Double" Nullable="false" />
+        <Property Name="Months" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SalaryGroup_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="SalaryGroup" Type="webapi.Models.SalaryGroup">
+          <ReferentialConstraint Property="SalaryGroup_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="Salary">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="StartDate" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="EndDate" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Bonus" Type="Edm.Double" Nullable="false" />
+        <Property Name="BonusForUser_Id" Type="Edm.String" />
+        <Property Name="PaidAmount" Type="Edm.Double" Nullable="false" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Generated" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <NavigationProperty Name="BonusForUser" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="BonusForUser_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="Taxonomy">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Parent_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="Parent" Type="webapi.Models.Taxonomy">
+          <ReferentialConstraint Property="Parent_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="SellerGoal">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Year" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Month" Type="Edm.Int32" Nullable="false" />
+        <Property Name="NewSalesCountGoal" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UpSalesCountGoal" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ReSalesCountGoal" Type="Edm.Int32" Nullable="false" />
+        <Property Name="NewSalesGoal" Type="Edm.Double" Nullable="false" />
+        <Property Name="UpSalesGoal" Type="Edm.Double" Nullable="false" />
+        <Property Name="ReSalesGoal" Type="Edm.Double" Nullable="false" />
+        <Property Name="CallsGoal" Type="Edm.Int32" Nullable="false" />
+        <Property Name="HealthChecksGoal" Type="Edm.Int32" Nullable="false" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="MeetingsGoal" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="ContractDailyStat">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="ClientManager_Id" Type="Edm.String" />
+        <Property Name="Contract_Id" Type="Edm.Int32" />
+        <Property Name="DailyValue" Type="Edm.Double" Nullable="false" />
+        <Property Name="DateOfStat" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="ProductType_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ClientManager" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="ClientManager_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Contract" Type="webapi.Models.Contract">
+          <ReferentialConstraint Property="Contract_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ProductType" Type="webapi.Models.ProductType">
+          <ReferentialConstraint Property="ProductType_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="EmployeeManual">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Title" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Content" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="ModifiedBy_Id" Type="Edm.String" />
+        <Property Name="Published" Type="Edm.DateTimeOffset" />
+        <NavigationProperty Name="ModifiedBy" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="ModifiedBy_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="LoyaltyBonus">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Discount" Type="Edm.Double" Nullable="false" />
+        <Property Name="Months" Type="Edm.Int32" Nullable="false" />
+      </EntityType>
+      <EntityType Name="OptimizeRule">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="Size" Type="webapi.Models.PackageSize" Nullable="false" />
+        <Property Name="Product_Id" Type="Edm.Int32" />
+        <Property Name="OptimizeInterval" Type="Edm.Int32" Nullable="false" />
+        <Property Name="TaskList_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="Product" Type="webapi.Models.Product">
+          <ReferentialConstraint Property="Product_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="TaskList" Type="webapi.Models.TaskListTemplate">
+          <ReferentialConstraint Property="TaskList_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="Whitelist">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="ipaddress" Type="Edm.String" />
+        <Property Name="Permanent" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Active" Type="Edm.Boolean" Nullable="false" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser" />
+      </EntityType>
+      <EntityType Name="ClientLogin">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Title" Type="Edm.String" />
+        <Property Name="Host" Type="Edm.String" />
+        <Property Name="Username" Type="Edm.String" />
+        <Property Name="Password" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Protocol" Type="webapi.Models.HostProtocol" Nullable="false" />
+        <Property Name="EncryptionKey" Type="Edm.String" />
+        <Property Name="DeletedDate" Type="Edm.DateTimeOffset" />
+        <Property Name="DeletedUser_Id" Type="Edm.String" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Contract_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="DeletedUser" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="DeletedUser_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Contract" Type="webapi.Models.Contract">
+          <ReferentialConstraint Property="Contract_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="ClientDailyStat">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ClientAlias_Id" Type="Edm.Int32" />
+        <Property Name="State" Type="webapi.Models.ClientDailyStatState" Nullable="false" />
+        <Property Name="DayOfStat" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Seller_Id" Type="Edm.String" />
+        <Property Name="ClientManager_Id" Type="Edm.String" />
+        <Property Name="ProductionManager_Id" Type="Edm.String" />
+        <NavigationProperty Name="ClientAlias" Type="webapi.Models.ClientAlias">
+          <ReferentialConstraint Property="ClientAlias_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Seller" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="Seller_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ClientManager" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="ClientManager_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ProductionManager" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="ProductionManager_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="TimeVault">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Balance" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Model" Type="Edm.String" />
+        <Property Name="ItemId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Value" Type="Edm.Double" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <NavigationProperty Name="Transactions" Type="Collection(webapi.Models.TimeTransaction)" />
+      </EntityType>
+      <ComplexType Name="UserInfoViewModel">
+        <Property Name="Email" Type="Edm.String" />
+        <Property Name="LocalNumber" Type="Edm.Int32" />
+        <Property Name="UserName" Type="Edm.String" />
+        <Property Name="Id" Type="Edm.String" />
+        <Property Name="FullName" Type="Edm.String" />
+      </ComplexType>
+      <EntityType Name="AclCache">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Controller" Type="Edm.String" />
+        <Property Name="Method" Type="Edm.String" />
+        <Property Name="Allowed" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <ComplexType Name="ExternalLoginViewModel">
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Url" Type="Edm.String" />
+        <Property Name="State" Type="Edm.String" />
+      </ComplexType>
+      <EntityType Name="AppointmentActivity">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="TimeSpan" Type="webapi.Models.Timespan" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="ActivityType" Type="webapi.Models.AppointmentType" Nullable="false" />
+        <Property Name="CalendarEvent_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Comment" Type="webapi.Models.Comment" />
+        <NavigationProperty Name="CalendarEvent" Type="webapi.Models.CalendarEvent">
+          <ReferentialConstraint Property="CalendarEvent_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="TimeTransaction">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="TimeVault_Id" Type="Edm.Int32" />
+        <Property Name="Amount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="Product_Id" Type="Edm.Int32" />
+        <Property Name="Value" Type="Edm.Double" />
+        <Property Name="Comment_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="TimeVault" Type="webapi.Models.TimeVault">
+          <ReferentialConstraint Property="TimeVault_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Product" Type="webapi.Models.Product">
+          <ReferentialConstraint Property="Product_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Comment" Type="webapi.Models.Comment">
+          <ReferentialConstraint Property="Comment_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="BotUser">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Identifier" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Password" Type="Edm.String" Nullable="false" />
+        <Property Name="Country_Id" Type="Edm.Int32" />
+        <Property Name="SearchUrl" Type="Edm.String" Nullable="false" />
+        <Property Name="SearchInterval" Type="Edm.Int32" Nullable="false" />
+        <Property Name="LeadCount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UniqueLeadCount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="AdCount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UniqueAdCount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="LastResultTime" Type="Edm.DateTimeOffset" Nullable="false" />
+        <NavigationProperty Name="Country" Type="webapi.Models.Country">
+          <ReferentialConstraint Property="Country_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="BreakRegistration">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="StartTime" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="EndTime" Type="Edm.DateTimeOffset" />
+        <Property Name="Status" Type="webapi.Models.BreakRegistrationStatus" Nullable="false" />
+        <NavigationProperty Name="TimeRegistration" Type="webapi.Models.TimeRegistration" />
+      </EntityType>
+      <EntityType Name="ContractActivity">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Contract_Id" Type="Edm.Int32" />
+        <Property Name="ActivityType" Type="webapi.Models.ContractActivityType" Nullable="false" />
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="TimeSpan" Type="webapi.Models.Timespan" />
+        <Property Name="OptimizationDelay" Type="webapi.Models.Timespan" />
+        <NavigationProperty Name="Contract" Type="webapi.Models.Contract">
+          <ReferentialConstraint Property="Contract_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="User" Type="webapi.Models.ApplicationUser">
+          <ReferentialConstraint Property="User_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Comment" Type="webapi.Models.Comment" />
+      </EntityType>
+      <EntityType Name="OrderProductPackage">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ProductPackage_Id" Type="Edm.Int32" />
+        <Property Name="ProductPrice" Type="Edm.Double" />
+        <Property Name="CreationFee" Type="Edm.Double" />
+        <Property Name="CreationFeeSplit" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Discount" Type="Edm.Double" Nullable="false" />
+        <Property Name="RunLength" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PaymentTerms" Type="webapi.Models.ContractTerms" Nullable="false" />
+        <Property Name="Domain" Type="Edm.String" Nullable="false" />
+        <Property Name="Country_Id" Type="Edm.Int32" />
+        <Property Name="Contract_Id" Type="Edm.Int32" />
+        <Property Name="PackageType" Type="webapi.Models.Type" Nullable="false" />
+        <Property Name="AdministrationFee" Type="Edm.Double" />
+        <Property Name="AdministrationFeeSplit" Type="Edm.Boolean" Nullable="false" />
+        <NavigationProperty Name="ProductPackage" Type="webapi.Models.ProductPackage">
+          <ReferentialConstraint Property="ProductPackage_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Order" Type="webapi.Models.Order" />
+        <NavigationProperty Name="Products" Type="Collection(webapi.Models.OrderPackageProduct)" />
+        <NavigationProperty Name="Country" Type="webapi.Models.Country">
+          <ReferentialConstraint Property="Country_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Contract" Type="webapi.Models.Contract">
+          <ReferentialConstraint Property="Contract_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="ProductProductPackage">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ProductPackage_Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Product_Id" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="ProductPackage" Type="webapi.Models.ProductPackage" Nullable="false">
+          <ReferentialConstraint Property="ProductPackage_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Product" Type="webapi.Models.Product" Nullable="false">
+          <ReferentialConstraint Property="Product_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="OrderPackageProduct">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="OrderPackage_Id" Type="Edm.Int32" />
+        <Property Name="Product_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="OrderPackage" Type="webapi.Models.OrderPackageProduct">
+          <ReferentialConstraint Property="OrderPackage_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Product" Type="webapi.Models.Product">
+          <ReferentialConstraint Property="Product_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="ContractFieldValue">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ContractField_Id" Type="Edm.Int32" />
+        <Property Name="Contract_Id" Type="Edm.Int32" />
+        <Property Name="value" Type="Edm.String" />
+        <NavigationProperty Name="ContractField" Type="webapi.Models.ContractField">
+          <ReferentialConstraint Property="ContractField_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Contract" Type="webapi.Models.Contract">
+          <ReferentialConstraint Property="Contract_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="ContractField">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="DisplayName" Type="Edm.String" />
+        <Property Name="ValueName" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Active" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="FieldType" Type="webapi.Models.ContractFieldType" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <NavigationProperty Name="FieldLinks" Type="Collection(webapi.Models.ContractFieldLink)" />
+        <NavigationProperty Name="FieldOption" Type="Collection(webapi.Models.ContractFieldOption)" />
+      </EntityType>
+      <EntityType Name="ContractFieldLink">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ProductType_Id" Type="Edm.Int32" />
+        <Property Name="ContractField_Id" Type="Edm.Int32" />
+        <Property Name="Active" Type="Edm.Boolean" Nullable="false" />
+        <NavigationProperty Name="ProductType" Type="webapi.Models.ProductType">
+          <ReferentialConstraint Property="ProductType_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="ContractField" Type="webapi.Models.ContractField">
+          <ReferentialConstraint Property="ContractField_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="ContractFieldOption">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="DisplayName" Type="Edm.String" Nullable="false" />
+        <Property Name="Value" Type="Edm.String" />
+        <Property Name="SortOrder" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ContractField_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="ContractField" Type="webapi.Models.ContractField">
+          <ReferentialConstraint Property="ContractField_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="InformationSchemeProducts">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Modified" Type="Edm.DateTimeOffset" />
+        <Property Name="InformationScheme_Id" Type="Edm.Int32" />
+        <Property Name="Product_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="InformationScheme" Type="webapi.Models.InformationScheme">
+          <ReferentialConstraint Property="InformationScheme_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+        <NavigationProperty Name="Product" Type="webapi.Models.Product">
+          <ReferentialConstraint Property="Product_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <ComplexType Name="Timespan">
+        <Property Name="Id" Type="Edm.Int64" Nullable="false" />
+        <Property Name="Days" Type="Edm.Int64" Nullable="false" />
+        <Property Name="Hours" Type="Edm.Int64" Nullable="false" />
+        <Property Name="Minutes" Type="Edm.Int64" Nullable="false" />
+      </ComplexType>
+      <EntityType Name="ApplicationUserClaim">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UserId" Type="Edm.String" />
+        <Property Name="ClaimType" Type="Edm.String" />
+        <Property Name="ClaimValue" Type="Edm.String" />
+      </EntityType>
+      <ComplexType Name="ApplicationUserLogin">
+        <Property Name="LoginProvider" Type="Edm.String" />
+        <Property Name="ProviderKey" Type="Edm.String" />
+        <Property Name="UserId" Type="Edm.String" />
+      </ComplexType>
+      <EntityType Name="ReminderInvoice">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Invoice_Id" Type="Edm.Int32" />
+        <NavigationProperty Name="Reminder" Type="webapi.Models.Reminder" />
+        <NavigationProperty Name="Invoice" Type="webapi.Models.Invoice">
+          <ReferentialConstraint Property="Invoice_Id" ReferencedProperty="Id" />
+        </NavigationProperty>
+      </EntityType>
+      <EnumType Name="AppointmentType">
+        <Member Name="Start" Value="0" />
+        <Member Name="Completed" Value="1" />
+        <Member Name="Move" Value="2" />
+        <Member Name="Cancel" Value="3" />
+        <Member Name="NoAnswer" Value="4" />
+      </EnumType>
+      <EnumType Name="TimeRegistrationEnum">
+        <Member Name="CheckedIn" Value="0" />
+        <Member Name="CheckedOut" Value="1" />
+        <Member Name="Break" Value="2" />
+        <Member Name="Absent" Value="3" />
+        <Member Name="Sick" Value="4" />
+        <Member Name="Vacation" Value="5" />
+      </EnumType>
+      <EnumType Name="BreakRegistrationStatus">
+        <Member Name="StartBreak" Value="0" />
+        <Member Name="EndBreak" Value="1" />
+      </EnumType>
+      <EnumType Name="ManagerTeamType">
+        <Member Name="ClientManager" Value="0" />
+        <Member Name="Team" Value="1" />
+      </EnumType>
+      <EnumType Name="CommentType">
+        <Member Name="Public" Value="0" />
+        <Member Name="Team" Value="1" />
+        <Member Name="Strategy" Value="2" />
+        <Member Name="Seo" Value="3" />
+      </EnumType>
+      <EnumType Name="OrderFieldType">
+        <Member Name="Text" Value="0" />
+        <Member Name="Select" Value="1" />
+        <Member Name="Radio" Value="2" />
+        <Member Name="CheckBox" Value="3" />
+        <Member Name="SpecialAdsLanding" Value="4" />
+        <Member Name="Textarea" Value="5" />
+        <Member Name="Email" Value="6" />
+        <Member Name="Password" Value="7" />
+        <Member Name="AdwordsId" Value="8" />
+        <Member Name="CampaignGoal" Value="9" />
+      </EnumType>
+      <EnumType Name="ContractOptionValues">
+        <Member Name="Automatic" Value="0" />
+        <Member Name="Manual" Value="1" />
+        <Member Name="Instant" Value="2" />
+      </EnumType>
+      <EnumType Name="PackageSize">
+        <Member Name="Lite" Value="0" />
+        <Member Name="Complete" Value="1" />
+        <Member Name="Premium" Value="2" />
+        <Member Name="Custom" Value="3" />
+        <Member Name="Mini" Value="4" />
+      </EnumType>
+      <EnumType Name="ContractTerms">
+        <Member Name="Monthly" Value="1" />
+        <Member Name="Quarterly" Value="3" />
+        <Member Name="Semiannually" Value="6" />
+        <Member Name="Annually" Value="12" />
+        <Member Name="OneTime" Value="100" />
+      </EnumType>
+      <EnumType Name="Type">
+        <Member Name="New" Value="0" />
+        <Member Name="Extend" Value="1" />
+        <Member Name="Upgrade" Value="2" />
+      </EnumType>
+      <EnumType Name="InvoiceLineStatus">
+        <Member Name="None" Value="0" />
+        <Member Name="Paid" Value="1" />
+      </EnumType>
+      <EnumType Name="CreationSource">
+        <Member Name="User" Value="0" />
+        <Member Name="System" Value="1" />
+        <Member Name="Imported" Value="2" />
+      </EnumType>
+      <EnumType Name="InvoiceStatus">
+        <Member Name="Created" Value="0" />
+        <Member Name="Sent" Value="1" />
+        <Member Name="Overdue" Value="2" />
+        <Member Name="Partial" Value="3" />
+        <Member Name="Paid" Value="4" />
+        <Member Name="DebtCollection" Value="5" />
+        <Member Name="Canceled" Value="6" />
+        <Member Name="Reminder" Value="7" />
+        <Member Name="Lost" Value="8" />
+        <Member Name="NotLinked" Value="10" />
+        <Member Name="FakeInvoice" Value="11" />
+      </EnumType>
+      <EnumType Name="InvoiceType">
+        <Member Name="Invoice" Value="0" />
+        <Member Name="CreditNote" Value="1" />
+        <Member Name="Reminder" Value="2" />
+      </EnumType>
+      <EnumType Name="ReminderType">
+        <Member Name="First" Value="0" />
+        <Member Name="Second" Value="1" />
+      </EnumType>
+      <EnumType Name="OrderStatus">
+        <Member Name="New" Value="0" />
+        <Member Name="Renew" Value="1" />
+        <Member Name="Extend" Value="2" />
+        <Member Name="Upgrade" Value="3" />
+      </EnumType>
+      <EnumType Name="DraftStatus">
+        <Member Name="None" Value="0" />
+        <Member Name="Deleted" Value="1" />
+        <Member Name="Invoice" Value="2" />
+        <Member Name="System" Value="3" />
+      </EnumType>
+      <EnumType Name="LeadStatus">
+        <Member Name="New" Value="0" />
+        <Member Name="Appointment" Value="1" />
+        <Member Name="NoAnswer" Value="2" />
+        <Member Name="Dead" Value="3" />
+        <Member Name="NoAds" Value="4" />
+        <Member Name="NotInterested" Value="5" />
+        <Member Name="ReUse" Value="6" />
+        <Member Name="Customer" Value="7" />
+        <Member Name="Local" Value="8" />
+      </EnumType>
+      <EnumType Name="LeadSource">
+        <Member Name="Bot" Value="0" />
+        <Member Name="User" Value="1" />
+        <Member Name="Imported" Value="2" />
+      </EnumType>
+      <EnumType Name="LeadType">
+        <Member Name="Adwords" Value="0" />
+        <Member Name="SEO" Value="1" />
+        <Member Name="Local" Value="2" />
+      </EnumType>
+      <EnumType Name="ContractStatus">
+        <Member Name="Active" Value="0" />
+        <Member Name="Suspended" Value="1" />
+        <Member Name="Standby" Value="2" />
+        <Member Name="Completed" Value="3" />
+        <Member Name="Cancelled" Value="4" />
+      </EnumType>
+      <EnumType Name="ContractFieldType">
+        <Member Name="Text" Value="0" />
+        <Member Name="Select" Value="1" />
+        <Member Name="Radio" Value="2" />
+        <Member Name="CheckBox" Value="3" />
+        <Member Name="Textarea" Value="4" />
+        <Member Name="Email" Value="5" />
+      </EnumType>
+      <EnumType Name="ContractPriority">
+        <Member Name="Low" Value="0" />
+        <Member Name="Normal" Value="1" />
+        <Member Name="High" Value="2" />
+      </EnumType>
+      <EnumType Name="ContractActivityType">
+        <Member Name="Start" Value="0" />
+        <Member Name="Stop" Value="1" />
+        <Member Name="Pause" Value="2" />
+        <Member Name="Optimize" Value="3" />
+        <Member Name="StartOptimize" Value="4" />
+        <Member Name="Produced" Value="5" />
+        <Member Name="Extend" Value="6" />
+        <Member Name="Upgrade" Value="7" />
+        <Member Name="Completed" Value="8" />
+        <Member Name="Other" Value="9" />
+        <Member Name="Assign" Value="10" />
+        <Member Name="Renew" Value="11" />
+      </EnumType>
+      <EnumType Name="EventType">
+        <Member Name="Meeting" Value="0" />
+        <Member Name="StartUpMeeting" Value="1" />
+        <Member Name="Appointment" Value="2" />
+        <Member Name="FollowUp" Value="3" />
+        <Member Name="ClosingCall" Value="4" />
+        <Member Name="HealthCheck" Value="5" />
+        <Member Name="Event" Value="6" />
+        <Member Name="Payment" Value="7" />
+      </EnumType>
+      <EnumType Name="Model">
+        <Member Name="User" Value="0" />
+        <Member Name="Role" Value="1" />
+      </EnumType>
+      <EnumType Name="HostProtocol">
+        <Member Name="https" Value="0" />
+        <Member Name="http" Value="1" />
+        <Member Name="ftp" Value="2" />
+        <Member Name="ftps" Value="3" />
+        <Member Name="sftp" Value="4" />
+        <Member Name="ssh" Value="5" />
+        <Member Name="file" Value="6" />
+      </EnumType>
+      <EnumType Name="ClientDailyStatState">
+        <Member Name="NewConfirmed" Value="0" />
+        <Member Name="Lost" Value="1" />
+        <Member Name="Winback" Value="2" />
+        <Member Name="NewPayed" Value="3" />
+      </EnumType>
+    </Schema>
+    <Schema Namespace="webapi.externalapi" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="CallLog">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="AccountId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UniqueCallId" Type="Edm.String" />
+        <Property Name="Duration" Type="Edm.Int32" Nullable="false" />
+        <Property Name="TimeStamp" Type="Edm.DateTimeOffset" />
+        <Property Name="CalledPhone" Type="Edm.String" />
+        <Property Name="EmployeeLocalNumber" Type="Edm.Int32" />
+        <Property Name="ANumber" Type="Edm.String" />
+        <Property Name="BNumber" Type="Edm.String" />
+        <Property Name="LinkedUniqueCallId" Type="Edm.String" />
+        <Property Name="CallDirection" Type="Edm.String" />
+        <Property Name="Transfer" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="PhoneLocalNumber" Type="Edm.String" />
+        <Property Name="Type" Type="webapi.externalapi.CallType" Nullable="false" />
+      </EntityType>
+      <EnumType Name="CallType">
+        <Member Name="AnsweredCall" Value="0" />
+        <Member Name="EndedCall" Value="1" />
+        <Member Name="OutgoingCall" Value="2" />
+        <Member Name="IncomingCall" Value="3" />
+      </EnumType>
+    </Schema>
+    <Schema Namespace="webapi.Controllers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <ComplexType Name="ChangePasswordModel">
+        <Property Name="OldPassword" Type="Edm.String" Nullable="false" />
+        <Property Name="NewPassword" Type="Edm.String" Nullable="false" />
+        <Property Name="ConfirmPassword" Type="Edm.String" Nullable="false" />
+      </ComplexType>
+      <ComplexType Name="SetPasswordModel">
+        <Property Name="NewPassword" Type="Edm.String" />
+        <Property Name="ConfirmPassword" Type="Edm.String" />
+      </ComplexType>
+      <ComplexType Name="InvoiceInfo">
+        <Property Name="NetAmount" Type="Edm.Double" Nullable="false" />
+        <Property Name="InvoiceNumber" Type="Edm.String" />
+        <Property Name="VatAmount" Type="Edm.Double" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="OrdreNumber" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Seller" Type="Edm.String" />
+        <Property Name="Type" Type="webapi.Models.InvoiceType" Nullable="false" />
+        <Property Name="VatRate" Type="Edm.Double" Nullable="false" />
+        <Property Name="IsPayed" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="OCR" Type="Edm.String" />
+      </ComplexType>
+      <ComplexType Name="LeadStats">
+        <Property Name="UserId" Type="Edm.String" />
+        <Property Name="Stats" Type="Collection(webapi.Controllers.KeysAndValues)" />
+      </ComplexType>
+      <ComplexType Name="KeysAndValues">
+        <Property Name="Key" Type="webapi.Models.LeadStatus" Nullable="false" />
+        <Property Name="Count" Type="Edm.Int32" Nullable="false" />
+      </ComplexType>
+    </Schema>
+    <Schema Namespace="webapi.ComplexTypes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <ComplexType Name="ConfirmationInfo">
+        <Property Name="OrderNumber" Type="Edm.String" />
+        <Property Name="SellerName" Type="Edm.String" />
+        <Property Name="InvoiceHash" Type="Edm.String" />
+        <Property Name="Status" Type="webapi.Models.InvoiceStatus" Nullable="false" />
+      </ComplexType>
+      <ComplexType Name="BankCsv">
+        <Property Name="PostedDate" Type="Edm.String" />
+        <Property Name="InterestDate" Type="Edm.String" />
+        <Property Name="Text" Type="Edm.String" />
+        <Property Name="Quantity" Type="Edm.Int32" />
+        <Property Name="Amount" Type="Edm.Double" />
+        <Property Name="PostedInDKK" Type="Edm.Double" />
+        <Property Name="Status" Type="Edm.String" />
+        <Property Name="BankArchieveReferences" Type="Edm.String" />
+        <Property Name="Invoice" Type="webapi.ComplexTypes.BankInvoice" />
+      </ComplexType>
+      <ComplexType Name="BankInvoice">
+        <Property Name="Invoice_Id" Type="Edm.Int32" />
+        <Property Name="InvoiceNumber" Type="Edm.Int32" />
+        <Property Name="ClientName" Type="Edm.String" />
+        <Property Name="UserName" Type="Edm.String" />
+        <Property Name="NetAmount" Type="Edm.Double" />
+        <Property Name="VatAmount" Type="Edm.Double" />
+        <Property Name="PaymentDate" Type="Edm.DateTimeOffset" />
+        <Property Name="ClientAlias_Id" Type="Edm.Int32" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" />
+        <Property Name="DueDate" Type="Edm.DateTimeOffset" />
+      </ComplexType>
+      <ComplexType Name="Payments">
+        <Property Name="InvoiceNumber" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Invoice_Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ClientAlias" Type="Edm.String" />
+        <Property Name="ClientAlias_Id" Type="Edm.Int32" />
+        <Property Name="ClientAliasPhone" Type="Edm.String" />
+        <Property Name="NetValue" Type="Edm.Double" Nullable="false" />
+        <Property Name="Commission" Type="Edm.Double" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="DueDate" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="PayDate" Type="Edm.DateTimeOffset" />
+        <Property Name="DebtorName" Type="Edm.String" />
+        <Property Name="Status" Type="webapi.Models.InvoiceStatus" Nullable="false" />
+        <Property Name="InvoiceSellerId" Type="Edm.String" />
+        <Property Name="ClientAliasSellerId" Type="Edm.String" />
+      </ComplexType>
+      <ComplexType Name="orderCounts">
+        <Property Name="Confirmed" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Unconfirmed" Type="Edm.Int32" Nullable="false" />
+      </ComplexType>
+      <ComplexType Name="ActiveClientsCount">
+        <Property Name="ActiveClients" Type="Edm.Int32" Nullable="false" />
+        <Property Name="NewActiveClients" Type="Edm.Int32" Nullable="false" />
+      </ComplexType>
+      <ComplexType Name="CallStats">
+        <Property Name="FullName" Type="Edm.String" />
+        <Property Name="UserName" Type="Edm.String" />
+        <Property Name="TotalDuration" Type="Edm.Int32" Nullable="false" />
+        <Property Name="AverageDuration" Type="Edm.Int32" Nullable="false" />
+        <Property Name="AverageDurationMonth" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Calls" Type="Edm.Int32" Nullable="false" />
+        <Property Name="AnsweredCalls" Type="Edm.Int32" Nullable="false" />
+        <Property Name="CallsMonth" Type="Edm.Int32" Nullable="false" />
+        <Property Name="TotalDurationMonth" Type="Edm.Int32" Nullable="false" />
+        <Property Name="AnsweredCallsMonth" Type="Edm.Int32" Nullable="false" />
+        <Property Name="CompletedHealthChecks" Type="Edm.Int32" Nullable="false" />
+        <Property Name="CompletedHealthChecksMonth" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SoldValueGoal" Type="Edm.Double" Nullable="false" />
+      </ComplexType>
+      <ComplexType Name="SaleGoal">
+        <Property Name="NewSalesCount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="NewSalesPayments" Type="Edm.Double" Nullable="false" />
+        <Property Name="NewSalesValue" Type="Edm.Double" Nullable="false" />
+        <Property Name="ReSalesCount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ReSalesValue" Type="Edm.Double" Nullable="false" />
+        <Property Name="UpSaleCount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UpSaleValue" Type="Edm.Double" Nullable="false" />
+        <Property Name="Payments" Type="Edm.Double" Nullable="false" />
+        <Property Name="Calls" Type="Edm.Int32" Nullable="false" />
+        <Property Name="HealthChecks" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Date" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="OwnMeetings" Type="Edm.Int32" Nullable="false" />
+        <Property Name="BookedMeetings" Type="Edm.Int32" Nullable="false" />
+        <Property Name="CompletedMeetings" Type="Edm.Int32" Nullable="false" />
+      </ComplexType>
+      <ComplexType Name="ContractStats">
+        <Property Name="TotalMinutesOnOptimize" Type="Edm.Double" Nullable="false" />
+        <Property Name="AverageOptimizeTime" Type="Edm.Double" Nullable="false" />
+        <Property Name="OptimizationsDone" Type="Edm.Int32" Nullable="false" />
+        <Property Name="OptimizationsDoneAverageDaily" Type="Edm.Double" Nullable="false" />
+      </ComplexType>
+      <ComplexType Name="PeriodizationStats">
+        <Property Name="InvoiceNumber" Type="Edm.Int32" Nullable="false" />
+        <Property Name="DebtorName" Type="Edm.String" />
+        <Property Name="ProductName" Type="Edm.String" />
+        <Property Name="Amount" Type="Edm.Double" Nullable="false" />
+        <Property Name="Date" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="Status" Type="webapi.Models.InvoiceStatus" Nullable="false" />
+      </ComplexType>
+      <ComplexType Name="StatsPaymentByProduct">
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="NetAmount" Type="Edm.Double" Nullable="false" />
+        <Property Name="Quantity" Type="Edm.Int32" Nullable="false" />
+      </ComplexType>
+      <ComplexType Name="TimeRegistrationStats">
+        <Property Name="User_Id" Type="Edm.String" />
+        <Property Name="TimeCheckedIn" Type="webapi.Models.Timespan" />
+        <Property Name="TimeOnBreak" Type="webapi.Models.Timespan" />
+        <Property Name="Date" Type="Edm.DateTimeOffset" Nullable="false" />
+      </ComplexType>
+      <ComplexType Name="StatsScreen">
+        <Property Name="SellerId" Type="Edm.String" />
+        <Property Name="SellerName" Type="Edm.String" />
+        <Property Name="Paid" Type="Edm.Double" Nullable="false" />
+        <Property Name="Pipeline" Type="Edm.Double" Nullable="false" />
+        <Property Name="Invoiced" Type="Edm.Double" Nullable="false" />
+        <Property Name="ConfirmedOrdersMonth" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ConfirmedOrdersDay" Type="Edm.Int32" Nullable="false" />
+        <Property Name="NewSales" Type="Edm.Int32" Nullable="false" />
+        <Property Name="NewSalesMonth" Type="Edm.Int32" Nullable="false" />
+        <Property Name="NewSalesCountGoal" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ResaleCountGoal" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UpsaleCountGoal" Type="Edm.Int32" Nullable="false" />
+        <Property Name="HealthCheckGoal" Type="Edm.Int32" Nullable="false" />
+        <Property Name="NewSalesGoal" Type="Edm.Double" Nullable="false" />
+        <Property Name="PaidGoal" Type="Edm.Double" Nullable="false" />
+        <Property Name="UpsaleGoal" Type="Edm.Double" Nullable="false" />
+        <Property Name="ResaleGoal" Type="Edm.Double" Nullable="false" />
+      </ComplexType>
+    </Schema>
+    <Schema Namespace="System.Web.Http" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <ComplexType Name="IHttpActionResult" Abstract="true" />
+    </Schema>
+    <Schema Namespace="System.Net.Http" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <ComplexType Name="HttpResponseMessage">
+        <Property Name="Version" Type="System.Version" />
+        <Property Name="Content" Type="System.Net.Http.HttpContent" />
+        <Property Name="StatusCode" Type="System.Net.HttpStatusCode" Nullable="false" />
+        <Property Name="ReasonPhrase" Type="Edm.String" />
+        <Property Name="Headers" Type="Collection(System.Collections.Generic.KeyValuePair_2OfString_IEnumerable_1OfString)" />
+        <Property Name="RequestMessage" Type="System.Net.Http.HttpRequestMessage" />
+      </ComplexType>
+      <ComplexType Name="HttpContent" Abstract="true">
+        <Property Name="Headers" Type="Collection(System.Collections.Generic.KeyValuePair_2OfString_IEnumerable_1OfString)" />
+      </ComplexType>
+      <ComplexType Name="ByteRangeStreamContent" BaseType="System.Net.Http.HttpContent" />
+      <ComplexType Name="ObjectContent" BaseType="System.Net.Http.HttpContent" />
+      <ComplexType Name="ObjectContent_1OfT" BaseType="System.Net.Http.ObjectContent" />
+      <ComplexType Name="PushStreamContent" BaseType="System.Net.Http.HttpContent" />
+      <ComplexType Name="HttpMessageContent" BaseType="System.Net.Http.HttpContent" />
+      <ComplexType Name="ByteArrayContent" BaseType="System.Net.Http.HttpContent" />
+      <ComplexType Name="FormUrlEncodedContent" BaseType="System.Net.Http.ByteArrayContent" />
+      <ComplexType Name="StringContent" BaseType="System.Net.Http.ByteArrayContent" />
+      <ComplexType Name="MultipartContent" BaseType="System.Net.Http.HttpContent" />
+      <ComplexType Name="MultipartFormDataContent" BaseType="System.Net.Http.MultipartContent" />
+      <ComplexType Name="StreamContent" BaseType="System.Net.Http.HttpContent" />
+      <ComplexType Name="HttpRequestMessage" OpenType="true">
+        <Property Name="Version" Type="System.Version" />
+        <Property Name="Content" Type="System.Net.Http.HttpContent" />
+        <Property Name="Method" Type="System.Net.Http.HttpMethod" />
+        <Property Name="RequestUri" Type="System.Uri" />
+        <Property Name="Headers" Type="Collection(System.Collections.Generic.KeyValuePair_2OfString_IEnumerable_1OfString)" />
+      </ComplexType>
+      <ComplexType Name="HttpMethod" />
+    </Schema>
+    <Schema Namespace="System.Collections.Generic" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <ComplexType Name="List_1OfTaskList">
+        <Property Name="Capacity" Type="Edm.Int32" Nullable="false" />
+      </ComplexType>
+      <ComplexType Name="KeyValuePair_2OfString_IEnumerable_1OfString">
+        <Property Name="Value" Type="Collection(Edm.String)" />
+      </ComplexType>
+    </Schema>
+    <Schema Namespace="System" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <ComplexType Name="Version" />
+      <ComplexType Name="Uri">
+        <Property Name="Segments" Type="Collection(Edm.String)" />
+      </ComplexType>
+    </Schema>
+    <Schema Namespace="System.Web.Http.OData.Batch" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <ComplexType Name="ODataBatchContent" BaseType="System.Net.Http.HttpContent">
+        <Property Name="Responses" Type="Collection(System.Web.Http.OData.Batch.ODataBatchResponseItem)" />
+      </ComplexType>
+      <ComplexType Name="ODataBatchResponseItem" Abstract="true" />
+      <ComplexType Name="OperationResponseItem" BaseType="System.Web.Http.OData.Batch.ODataBatchResponseItem" />
+      <ComplexType Name="ChangeSetResponseItem" BaseType="System.Web.Http.OData.Batch.ODataBatchResponseItem">
+        <Property Name="Responses" Type="Collection(System.Net.Http.HttpResponseMessage)" />
+      </ComplexType>
+    </Schema>
+    <Schema Namespace="System.Web.OData.Batch" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <ComplexType Name="ODataBatchContent" BaseType="System.Net.Http.HttpContent">
+        <Property Name="Responses" Type="Collection(System.Web.OData.Batch.ODataBatchResponseItem)" />
+      </ComplexType>
+      <ComplexType Name="ODataBatchResponseItem" Abstract="true" />
+      <ComplexType Name="OperationResponseItem" BaseType="System.Web.OData.Batch.ODataBatchResponseItem" />
+      <ComplexType Name="ChangeSetResponseItem" BaseType="System.Web.OData.Batch.ODataBatchResponseItem">
+        <Property Name="Responses" Type="Collection(System.Net.Http.HttpResponseMessage)" />
+      </ComplexType>
+    </Schema>
+    <Schema Namespace="System.Net" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EnumType Name="HttpStatusCode">
+        <Member Name="Continue" Value="100" />
+        <Member Name="SwitchingProtocols" Value="101" />
+        <Member Name="OK" Value="200" />
+        <Member Name="Created" Value="201" />
+        <Member Name="Accepted" Value="202" />
+        <Member Name="NonAuthoritativeInformation" Value="203" />
+        <Member Name="NoContent" Value="204" />
+        <Member Name="ResetContent" Value="205" />
+        <Member Name="PartialContent" Value="206" />
+        <Member Name="MultipleChoices" Value="300" />
+        <Member Name="MovedPermanently" Value="301" />
+        <Member Name="Redirect" Value="302" />
+        <Member Name="SeeOther" Value="303" />
+        <Member Name="NotModified" Value="304" />
+        <Member Name="UseProxy" Value="305" />
+        <Member Name="Unused" Value="306" />
+        <Member Name="TemporaryRedirect" Value="307" />
+        <Member Name="BadRequest" Value="400" />
+        <Member Name="Unauthorized" Value="401" />
+        <Member Name="PaymentRequired" Value="402" />
+        <Member Name="Forbidden" Value="403" />
+        <Member Name="NotFound" Value="404" />
+        <Member Name="MethodNotAllowed" Value="405" />
+        <Member Name="NotAcceptable" Value="406" />
+        <Member Name="ProxyAuthenticationRequired" Value="407" />
+        <Member Name="RequestTimeout" Value="408" />
+        <Member Name="Conflict" Value="409" />
+        <Member Name="Gone" Value="410" />
+        <Member Name="LengthRequired" Value="411" />
+        <Member Name="PreconditionFailed" Value="412" />
+        <Member Name="RequestEntityTooLarge" Value="413" />
+        <Member Name="RequestUriTooLong" Value="414" />
+        <Member Name="UnsupportedMediaType" Value="415" />
+        <Member Name="RequestedRangeNotSatisfiable" Value="416" />
+        <Member Name="ExpectationFailed" Value="417" />
+        <Member Name="UpgradeRequired" Value="426" />
+        <Member Name="InternalServerError" Value="500" />
+        <Member Name="NotImplemented" Value="501" />
+        <Member Name="BadGateway" Value="502" />
+        <Member Name="ServiceUnavailable" Value="503" />
+        <Member Name="GatewayTimeout" Value="504" />
+        <Member Name="HttpVersionNotSupported" Value="505" />
+      </EnumType>
+    </Schema>
+    <Schema Namespace="action" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <Action Name="ChangePassword" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.ApplicationUser)" />
+        <Parameter Name="ChangePassword" Type="webapi.Controllers.ChangePasswordModel" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="SetPassword" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ApplicationUser" />
+        <Parameter Name="SetPassword" Type="webapi.Controllers.SetPasswordModel" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="AddToRole" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ApplicationUser" />
+        <Parameter Name="role" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="RemoveFromRole" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ApplicationUser" />
+        <Parameter Name="role" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="UpdateCache" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ApplicationUser" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Function Name="UserInfo" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.ApplicationUser)" />
+        <ReturnType Type="webapi.Models.UserInfoViewModel" />
+      </Function>
+      <Function Name="Permissions" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.ApplicationUser)" />
+        <ReturnType Type="Collection(webapi.Models.AclCache)" />
+      </Function>
+      <Function Name="GetExternalLogins" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.ApplicationUser)" />
+        <ReturnType Type="Collection(webapi.Models.ExternalLoginViewModel)" />
+      </Function>
+      <Action Name="RegisterExternal" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.ApplicationUser)" />
+        <Parameter Name="model" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="UpdateRequesters" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.AROACO)" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="UpdateObjects" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.AROACO)" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Confirm" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Order)" />
+        <Parameter Name="Hashcode" Type="Edm.String" Unicode="false" />
+        <Parameter Name="IP" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Net.Http.HttpResponseMessage" />
+      </Action>
+      <Action Name="Approve" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Order" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Archive" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Order" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Resend" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Order" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="OrderCount" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Order)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <Parameter Name="StartDate" Type="Edm.String" Unicode="false" />
+        <Parameter Name="EndDate" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="webapi.ComplexTypes.orderCounts" />
+      </Action>
+      <Function Name="OrderCountToday" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Order)" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Function>
+      <Action Name="AssignedTo" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TaskList)" />
+        <Parameter Name="AssignedTo" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.Models.TaskList)" />
+      </Action>
+      <Action Name="NewTask" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TaskList)" />
+        <Parameter Name="Description" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Model" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Item" Type="Edm.String" Unicode="false" />
+        <Parameter Name="AssignedTo" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Parent" Type="Edm.Int32" />
+        <Parameter Name="Title" Type="Edm.String" Unicode="false" />
+        <Parameter Name="NotifyCreator" Type="Edm.Boolean" />
+        <ReturnType Type="webapi.Models.TaskList" />
+      </Action>
+      <Action Name="GetCreatedBy" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TaskList)" />
+        <ReturnType Type="System.Collections.Generic.List_1OfTaskList" />
+      </Action>
+      <Action Name="Check" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.TaskList" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="UnCheck" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.TaskList" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="NewTask" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TaskListTemplate)" />
+        <Parameter Name="Description" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Parent" Type="Edm.Int32" />
+        <Parameter Name="Title" Type="Edm.String" Unicode="false" />
+        <Parameter Name="NotifyCreator" Type="Edm.Boolean" />
+        <Parameter Name="AssignedTo" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="webapi.Models.TaskListTemplate" />
+      </Action>
+      <Function Name="UserStatusList" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TimeRegistration)" />
+        <ReturnType Type="Collection(webapi.Models.TimeRegistration)" />
+      </Function>
+      <Function Name="CurrentStatus" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TimeRegistration)" />
+        <ReturnType Type="webapi.Models.TimeRegistration" />
+      </Function>
+      <Action Name="BeginBreak" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TimeRegistration)" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="EndBreak" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TimeRegistration)" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="CheckIn" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TimeRegistration)" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="CheckOut" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TimeRegistration)" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Stats" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TimeRegistration)" />
+        <Parameter Name="UserId" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="webapi.Models.TimeRegistration" />
+      </Action>
+      <Action Name="Move" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Lead" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Book" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Lead" />
+        <Parameter Name="Calendar_Id" Type="Edm.Int32" Nullable="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Assign" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Lead)" />
+        <Parameter Name="Amount" Type="Edm.Int32" Nullable="false" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Status" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Function Name="Stats" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Lead)" />
+        <ReturnType Type="Collection(webapi.Controllers.LeadStats)" />
+      </Function>
+      <Function Name="NeedReassign" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Lead)" />
+        <ReturnType Type="Collection(webapi.Models.Lead)" />
+      </Function>
+      <Action Name="ClientExists" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Lead)" />
+        <Parameter Name="PhoneNumber" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="webapi.Models.ClientAlias" />
+      </Action>
+      <Action Name="ByClient" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Draft)" />
+        <Parameter Name="ClientAlias_Id" Type="Edm.Int32" Nullable="false" />
+        <ReturnType Type="webapi.Models.Draft" />
+      </Action>
+      <Action Name="AddContract" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Draft" />
+        <Parameter Name="Contract_Id" Type="Edm.Int32" Nullable="false" />
+        <Parameter Name="Quantity" Type="Edm.Int32" />
+        <ReturnType Type="webapi.Models.DraftLine" />
+      </Action>
+      <Function Name="Preview" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Draft" />
+        <ReturnType Type="System.Net.Http.HttpResponseMessage" />
+      </Function>
+      <Action Name="AddProduct" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Draft" />
+        <Parameter Name="Quantity" Type="Edm.Int32" />
+        <Parameter Name="Description" Type="Edm.String" Unicode="false" />
+        <Parameter Name="ProductId" Type="Edm.Int32" Nullable="false" />
+        <ReturnType Type="webapi.Models.DraftLine" />
+      </Action>
+      <Action Name="Finalize" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Draft" />
+        <Parameter Name="SendMail" Type="Edm.Boolean" />
+        <ReturnType Type="webapi.Models.Invoice" />
+      </Action>
+      <Action Name="Assign" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Contract" />
+        <Parameter Name="Manager_Id" Type="Edm.String" Unicode="false" />
+        <Parameter Name="TemplateId" Type="Edm.Int32" />
+        <ReturnType Type="webapi.Models.Contract" />
+      </Action>
+      <Action Name="Start" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Contract" />
+        <Parameter Name="Comment" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="StartOptimize" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Contract" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Produced" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Contract" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="EndOptimize" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Contract" />
+        <Parameter Name="Comment" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Pause" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Contract" />
+        <Parameter Name="Comment" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Resume" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Contract" />
+        <Parameter Name="Comment" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="RenewalCount" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Contract)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Edm.Int32" Nullable="false" />
+      </Action>
+      <Action Name="RenewalOverview" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Contract)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.Models.Contract)" />
+      </Action>
+      <Action Name="WinBackCount" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Contract)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Edm.Int32" Nullable="false" />
+      </Action>
+      <Action Name="WinBackOverview" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Contract)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.Models.Contract)" />
+      </Action>
+      <Action Name="SelectAddons" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Contract" />
+        <Parameter Name="Addons" Type="Collection(Edm.Int32)" Nullable="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Function Name="SendStartupMail" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Contract" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Function>
+      <Action Name="Move" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Contract" />
+        <Parameter Name="Manager_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="ForItem" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Comment)" />
+        <Parameter Name="Model" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Item" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.Models.Comment)" />
+      </Action>
+      <Action Name="Hide" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Comment" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Show" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Comment" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="AddUser" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ManagerTeam" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="RemoveUser" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ManagerTeam" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Function Name="Example" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Template" />
+        <ReturnType Type="System.Net.Http.HttpResponseMessage" />
+      </Function>
+      <Function Name="Payed" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Invoice)" />
+        <Parameter Name="Year" Type="Edm.Int32" />
+        <ReturnType Type="Collection(webapi.Models.Statistic)" />
+      </Function>
+      <Function Name="Payed" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Statistic)" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Function>
+      <Action Name="Periodization" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Statistic)" />
+        <Parameter Name="Date" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.ComplexTypes.PeriodizationStats)" />
+      </Action>
+      <Function Name="Payments" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Statistic)" />
+        <Parameter Name="Date" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.ComplexTypes.PeriodizationStats)" />
+      </Function>
+      <Action Name="OptimizeStats" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Contract)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <Parameter Name="StartDate" Type="Edm.String" Unicode="false" />
+        <Parameter Name="EndDate" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.ComplexTypes.ContractStats)" />
+      </Action>
+      <Action Name="Summary" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.ContractDailyStat)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <Parameter Name="StartDate" Type="Edm.String" Unicode="false" />
+        <Parameter Name="EndDate" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Edm.Double" Nullable="false" />
+      </Action>
+      <Function Name="ScreenStats" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Statistic)" />
+        <ReturnType Type="Collection(webapi.ComplexTypes.StatsScreen)" />
+      </Function>
+      <Action Name="Read" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Notification" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="UnRead" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Notification" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Function Name="Latest" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Notification)" />
+        <ReturnType Type="Collection(webapi.Models.Notification)" />
+      </Function>
+      <Function Name="GetFile" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.FileStorage" />
+        <ReturnType Type="System.Net.Http.HttpResponseMessage" />
+      </Function>
+      <Action Name="Paid" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Public)" />
+        <Parameter Name="Hashcode" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Transaction_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Function Name="InvoiceData" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Public" />
+        <ReturnType Type="webapi.Controllers.InvoiceInfo" />
+      </Function>
+      <Action Name="IsWhitelisted" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Public)" />
+        <Parameter Name="ip" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Edm.Boolean" Nullable="false" />
+      </Action>
+      <Action Name="PhoneNumberByUserName" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Public)" />
+        <Parameter Name="UserName" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Edm.String" Unicode="false" />
+      </Action>
+      <Action Name="AddToWhitelist" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Public)" />
+        <Parameter Name="UserName" Type="Edm.String" Unicode="false" />
+        <Parameter Name="ip" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="webapi.Models.Whitelist" />
+      </Action>
+      <Action Name="Decrypt" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ClientLogin" />
+        <Parameter Name="EncryptionKey" Type="Edm.String" Nullable="false" Unicode="false" />
+        <ReturnType Type="Edm.String" Unicode="false" />
+      </Action>
+      <Action Name="AddProduct" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ProductPackage" />
+        <Parameter Name="Product_Id" Type="Edm.Int32" Nullable="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="RemoveProduct" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ProductPackage" />
+        <Parameter Name="Product_Id" Type="Edm.Int32" Nullable="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Pay" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Invoice" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="SendInvoice" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Invoice" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Flip" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Invoice" />
+        <ReturnType Type="webapi.Models.Draft" />
+      </Action>
+      <Action Name="Escalate" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Invoice" />
+        <ReturnType Type="webapi.Models.Draft" />
+      </Action>
+      <Action Name="SendToDebtCollection" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.Invoice" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Confirm" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.InformationScheme)" />
+        <Parameter Name="Hashcode" Type="Edm.String" Unicode="false" />
+        <Parameter Name="IP" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Net.Http.HttpResponseMessage" />
+      </Action>
+      <Action Name="Approve" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.InformationScheme" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Bonus" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Salary)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <Parameter Name="StartDate" Type="Edm.String" Unicode="false" />
+        <Parameter Name="EndDate" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="PaidOverview" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Salary)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <Parameter Name="StartDate" Type="Edm.String" Unicode="false" />
+        <Parameter Name="EndDate" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.ComplexTypes.Payments)" />
+      </Action>
+      <Action Name="PendingOverview" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Salary)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <Parameter Name="StartDate" Type="Edm.String" Unicode="false" />
+        <Parameter Name="EndDate" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.ComplexTypes.Payments)" />
+      </Action>
+      <Action Name="PipelineCount" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Salary)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Edm.Double" Nullable="false" />
+      </Action>
+      <Action Name="PaymentCount" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Salary)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <Parameter Name="StartDate" Type="Edm.String" Unicode="false" />
+        <Parameter Name="EndDate" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.ComplexTypes.Payments)" />
+      </Action>
+      <Action Name="OverDueCount" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Salary)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Edm.Double" Nullable="false" />
+      </Action>
+      <Action Name="OverDueOverview" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Salary)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.ComplexTypes.Payments)" />
+      </Action>
+      <Action Name="CreateReminder" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ClientAlias" />
+        <ReturnType Type="webapi.Models.Draft" />
+      </Action>
+      <Action Name="ActiveClients" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.ClientAlias)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <Parameter Name="StartDate" Type="Edm.String" Unicode="false" />
+        <Parameter Name="EndDate" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="webapi.ComplexTypes.ActiveClientsCount" />
+      </Action>
+      <Action Name="GetCompanyName" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.ClientAlias)" />
+        <Parameter Name="Model" Type="Edm.String" Nullable="false" Unicode="false" />
+        <Parameter Name="ModelId" Type="Edm.Int32" Nullable="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="Move" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ClientAlias" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="ActiveClientAlias" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.ClientAlias)" />
+        <Parameter Name="User_Id" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.Models.ClientAlias)" />
+      </Action>
+      <Function Name="EligibleDiscountProcentage" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ClientAlias" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Function>
+      <Function Name="CallOverview" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.externalapi.CallLog)" />
+        <Parameter Name="RoleId" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="Collection(webapi.ComplexTypes.CallStats)" />
+      </Function>
+      <Action Name="InitiateCall" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.externalapi.CallLog)" />
+        <Parameter Name="TargetNumber" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Action>
+      <Action Name="LastCall" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.externalapi.CallLog)" />
+        <Parameter Name="Number" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="webapi.externalapi.CallLog" />
+      </Action>
+      <Function Name="Stats" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.SellerGoal" />
+        <ReturnType Type="Collection(webapi.ComplexTypes.SaleGoal)" />
+      </Function>
+      <Function Name="CreateOnGoogle" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.CalendarEvent" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Function>
+      <Action Name="NextAppointment" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.CalendarEvent)" />
+        <Parameter Name="Model" Type="Edm.String" Nullable="false" Unicode="false" />
+        <Parameter Name="ModelId" Type="Edm.Int32" Nullable="false" />
+        <Parameter Name="EventType" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="webapi.Models.CalendarEvent" />
+      </Action>
+      <Function Name="LastActivity" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.CalendarEvent" />
+        <ReturnType Type="webapi.Models.AppointmentActivity" />
+      </Function>
+      <Action Name="AddActivity" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.CalendarEvent" />
+        <Parameter Name="Comment" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Type" Type="webapi.Models.AppointmentType" Nullable="false" />
+        <ReturnType Type="webapi.Models.AppointmentActivity" />
+      </Action>
+      <Function Name="Calls" IsBound="true">
+        <Parameter Name="bindingParameter" Type="webapi.Models.ClientAlias" />
+        <ReturnType Type="Collection(webapi.externalapi.CallLog)" />
+      </Function>
+      <Action Name="ForItem" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TimeVault)" />
+        <Parameter Name="Model" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Item" Type="Edm.Int32" Nullable="false" />
+        <ReturnType Type="webapi.Models.TimeVault" />
+      </Action>
+      <Action Name="RetrieveTransactions" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TimeVault)" />
+        <Parameter Name="Model" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Item" Type="Edm.Int32" Nullable="false" />
+        <ReturnType Type="Collection(webapi.Models.TimeTransaction)" />
+      </Action>
+      <Action Name="Withdraw" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.TimeVault)" />
+        <Parameter Name="Model" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Item" Type="Edm.Int32" Nullable="false" />
+        <Parameter Name="Minutes" Type="Edm.Int32" Nullable="false" />
+        <Parameter Name="UserId" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Created" Type="Edm.String" Unicode="false" />
+        <Parameter Name="Comment" Type="Edm.String" Unicode="false" />
+        <ReturnType Type="webapi.Models.TimeVault" />
+      </Action>
+      <Function Name="MarkAllSeen" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Log)" />
+        <ReturnType Type="System.Web.Http.IHttpActionResult" />
+      </Function>
+      <Function Name="BotStats" IsBound="true">
+        <Parameter Name="bindingParameter" Type="Collection(webapi.Models.Public)" />
+        <ReturnType Type="Collection(webapi.Models.BotUser)" />
+      </Function>
+      <EntityContainer Name="Container">
+        <EntitySet Name="Notifications" EntityType="webapi.Models.Notification">
+          <NavigationPropertyBinding Path="Recipient" Target="Users" />
+          <NavigationPropertyBinding Path="Creator" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="Clients" EntityType="webapi.Models.Client">
+          <NavigationPropertyBinding Path="ClientAlias" Target="ClientAlias" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="ClientManager" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="ClientAlias" EntityType="webapi.Models.ClientAlias">
+          <NavigationPropertyBinding Path="Client" Target="Clients" />
+          <NavigationPropertyBinding Path="Country" Target="Countries" />
+          <NavigationPropertyBinding Path="Contact" Target="Contacts" />
+          <NavigationPropertyBinding Path="Order" Target="Orders" />
+          <NavigationPropertyBinding Path="Contract" Target="Contracts" />
+          <NavigationPropertyBinding Path="Draft" Target="Drafts" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Invoice" Target="Invoices" />
+          <NavigationPropertyBinding Path="Taxonomy" Target="Taxonomies" />
+          <NavigationPropertyBinding Path="Lead" Target="Leads" />
+          <NavigationPropertyBinding Path="Partner" Target="Partners" />
+        </EntitySet>
+        <EntitySet Name="Users" EntityType="webapi.Models.ApplicationUser">
+          <NavigationPropertyBinding Path="TimeRegistration" Target="TimeRegistrations" />
+          <NavigationPropertyBinding Path="ManagerTeam" Target="ManagerTeams" />
+          <NavigationPropertyBinding Path="UserRoles" Target="UserRoles" />
+          <NavigationPropertyBinding Path="Title" Target="Titles" />
+          <NavigationPropertyBinding Path="SalaryGroup" Target="SalaryGroups" />
+          <NavigationPropertyBinding Path="Comments" Target="Comments" />
+          <NavigationPropertyBinding Path="Roles" Target="UserRoles" />
+        </EntitySet>
+        <EntitySet Name="Titles" EntityType="webapi.Models.UserTitle">
+          <NavigationPropertyBinding Path="Users" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="CallLogs" EntityType="webapi.externalapi.CallLog" />
+        <EntitySet Name="Contacts" EntityType="webapi.Models.Contact">
+          <NavigationPropertyBinding Path="ClientAlias" Target="ClientAlias" />
+        </EntitySet>
+        <EntitySet Name="Contracts" EntityType="webapi.Models.Contract">
+          <NavigationPropertyBinding Path="ClientAlias" Target="ClientAlias" />
+          <NavigationPropertyBinding Path="Manager" Target="Users" />
+          <NavigationPropertyBinding Path="ManagerTeam" Target="ManagerTeams" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Country" Target="Countries" />
+          <NavigationPropertyBinding Path="ContractOption" Target="ContractOption" />
+          <NavigationPropertyBinding Path="OriginalOrder" Target="Orders" />
+          <NavigationPropertyBinding Path="Order" Target="Orders" />
+          <NavigationPropertyBinding Path="Product" Target="Products" />
+          <NavigationPropertyBinding Path="ProductPackage" Target="ProductPackages" />
+          <NavigationPropertyBinding Path="Parent" Target="Contracts" />
+          <NavigationPropertyBinding Path="Children" Target="Contracts" />
+          <NavigationPropertyBinding Path="ContractType" Target="ProductTypes" />
+          <NavigationPropertyBinding Path="Partner" Target="Partners" />
+          <NavigationPropertyBinding Path="DraftLines" Target="DraftLines" />
+          <NavigationPropertyBinding Path="InvoiceLines" Target="InvoiceLines" />
+          <NavigationPropertyBinding Path="InformationSchemes" Target="InformationSchemes" />
+        </EntitySet>
+        <EntitySet Name="CalendarEvents" EntityType="webapi.Models.CalendarEvent">
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Booker" Target="Users" />
+          <NavigationPropertyBinding Path="Attendees" Target="CalendarAttendees" />
+          <NavigationPropertyBinding Path="Source" Target="CalendarSources" />
+          <NavigationPropertyBinding Path="Activity" Target="AppointmentActivities" />
+        </EntitySet>
+        <EntitySet Name="CalendarAttendees" EntityType="webapi.Models.CalendarAttendee" />
+        <EntitySet Name="CalendarSources" EntityType="webapi.Models.CalendarSource" />
+        <EntitySet Name="DraftLines" EntityType="webapi.Models.DraftLine">
+          <NavigationPropertyBinding Path="Draft" Target="Drafts" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Product" Target="Products" />
+          <NavigationPropertyBinding Path="Contract" Target="Contracts" />
+        </EntitySet>
+        <EntitySet Name="Drafts" EntityType="webapi.Models.Draft">
+          <NavigationPropertyBinding Path="ClientAlias" Target="ClientAlias" />
+          <NavigationPropertyBinding Path="DraftLine" Target="DraftLines" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Contract" Target="Contracts" />
+        </EntitySet>
+        <EntitySet Name="Countries" EntityType="webapi.Models.Country" />
+        <EntitySet Name="Orders" EntityType="webapi.Models.Order">
+          <NavigationPropertyBinding Path="ClientAlias" Target="ClientAlias" />
+          <NavigationPropertyBinding Path="OrderFieldValue" Target="OrderFieldValues" />
+          <NavigationPropertyBinding Path="OrderProduct" Target="OrderProducts" />
+          <NavigationPropertyBinding Path="OrderType" Target="OrderTypes" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="ApprovedBy" Target="Users" />
+          <NavigationPropertyBinding Path="Invoice" Target="Invoices" />
+          <NavigationPropertyBinding Path="Parent" Target="Orders" />
+          <NavigationPropertyBinding Path="Children" Target="Orders" />
+          <NavigationPropertyBinding Path="Contracts" Target="Contracts" />
+        </EntitySet>
+        <EntitySet Name="Products" EntityType="webapi.Models.Product">
+          <NavigationPropertyBinding Path="ProductDepartment" Target="ProductDepartments" />
+          <NavigationPropertyBinding Path="ProductType" Target="ProductTypes" />
+          <NavigationPropertyBinding Path="ContractOption" Target="ContractOption" />
+          <NavigationPropertyBinding Path="OptimizeRule" Target="OptimizeRules" />
+        </EntitySet>
+        <EntitySet Name="ContractOption" EntityType="webapi.Models.ContractOption" />
+        <EntitySet Name="Partners" EntityType="webapi.Models.Partner">
+          <NavigationPropertyBinding Path="Country" Target="Countries" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="ClientAlias" Target="ClientAlias" />
+          <NavigationPropertyBinding Path="Leads" Target="Leads" />
+        </EntitySet>
+        <EntitySet Name="ProductDepartments" EntityType="webapi.Models.ProductDepartment" />
+        <EntitySet Name="ProductPackages" EntityType="webapi.Models.ProductPackage">
+          <NavigationPropertyBinding Path="Product" Target="Products" />
+        </EntitySet>
+        <EntitySet Name="ProductTypes" EntityType="webapi.Models.ProductType" />
+        <EntitySet Name="Invoices" EntityType="webapi.Models.Invoice">
+          <NavigationPropertyBinding Path="ClientAlias" Target="ClientAlias" />
+          <NavigationPropertyBinding Path="Country" Target="Countries" />
+          <NavigationPropertyBinding Path="InvoiceLine" Target="InvoiceLines" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Contract" Target="Contracts" />
+        </EntitySet>
+        <EntitySet Name="InvoiceLines" EntityType="webapi.Models.InvoiceLine">
+          <NavigationPropertyBinding Path="Invoice" Target="Invoices" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Contract" Target="Contracts" />
+          <NavigationPropertyBinding Path="Product" Target="Products" />
+        </EntitySet>
+        <EntitySet Name="OrderFieldValues" EntityType="webapi.Models.OrderFieldValue">
+          <NavigationPropertyBinding Path="OrderField" Target="OrderFields" />
+        </EntitySet>
+        <EntitySet Name="OrderProducts" EntityType="webapi.Models.OrderProduct">
+          <NavigationPropertyBinding Path="Product" Target="Products" />
+          <NavigationPropertyBinding Path="Order" Target="Orders" />
+        </EntitySet>
+        <EntitySet Name="OrderTypes" EntityType="webapi.Models.OrderType">
+          <NavigationPropertyBinding Path="Type" Target="ProductTypes" />
+          <NavigationPropertyBinding Path="OrderTypeOrderField" Target="OrderTypeOrderFields" />
+        </EntitySet>
+        <EntitySet Name="OrderFields" EntityType="webapi.Models.OrderField">
+          <NavigationPropertyBinding Path="OrderFieldOption" Target="OrderFieldOptions" />
+        </EntitySet>
+        <EntitySet Name="OrderFieldOptions" EntityType="webapi.Models.OrderFieldOption">
+          <NavigationPropertyBinding Path="OrderField" Target="OrderFields" />
+        </EntitySet>
+        <EntitySet Name="OrderTypeOrderFields" EntityType="webapi.Models.OrderTypeOrderField">
+          <NavigationPropertyBinding Path="OrderType" Target="OrderTypes" />
+          <NavigationPropertyBinding Path="OrderField" Target="OrderFields" />
+        </EntitySet>
+        <EntitySet Name="PhoneStatistics" EntityType="webapi.Models.PhoneStatistic" />
+        <EntitySet Name="Aros" EntityType="webapi.Models.ARO">
+          <NavigationPropertyBinding Path="Aroaco" Target="Acls" />
+        </EntitySet>
+        <EntitySet Name="Acos" EntityType="webapi.Models.ACO">
+          <NavigationPropertyBinding Path="Aroaco" Target="Acls" />
+        </EntitySet>
+        <EntitySet Name="Acls" EntityType="webapi.Models.AROACO">
+          <NavigationPropertyBinding Path="ACO" Target="Acos" />
+          <NavigationPropertyBinding Path="ARO" Target="Aros" />
+        </EntitySet>
+        <EntitySet Name="Roles" EntityType="webapi.Models.ApplicationRole">
+          <NavigationPropertyBinding Path="Users" Target="UserRoles" />
+        </EntitySet>
+        <EntitySet Name="UserRoles" EntityType="webapi.Models.ApplicationUserRole">
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Role" Target="Roles" />
+        </EntitySet>
+        <EntitySet Name="TaskLists" EntityType="webapi.Models.TaskList">
+          <NavigationPropertyBinding Path="CreatedBy" Target="Users" />
+          <NavigationPropertyBinding Path="AssignedTo" Target="Users" />
+          <NavigationPropertyBinding Path="Parent" Target="TaskLists" />
+          <NavigationPropertyBinding Path="Children" Target="TaskLists" />
+          <NavigationPropertyBinding Path="CompletedBy" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="TimeRegistrations" EntityType="webapi.Models.TimeRegistration">
+          <NavigationPropertyBinding Path="User" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="Leads" EntityType="webapi.Models.Lead">
+          <NavigationPropertyBinding Path="Country" Target="Countries" />
+          <NavigationPropertyBinding Path="Phone" Target="PhoneNumbers" />
+          <NavigationPropertyBinding Path="Ads" Target="Ads" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="UserSource" Target="Users" />
+          <NavigationPropertyBinding Path="Booker" Target="Users" />
+          <NavigationPropertyBinding Path="Partner" Target="Partners" />
+          <NavigationPropertyBinding Path="Taxonomy" Target="Taxonomies" />
+        </EntitySet>
+        <EntitySet Name="PhoneNumbers" EntityType="webapi.Models.PhoneNumber">
+          <NavigationPropertyBinding Path="Country" Target="Countries" />
+        </EntitySet>
+        <EntitySet Name="Publics" EntityType="webapi.Models.Public" />
+        <EntitySet Name="Settings" EntityType="webapi.Models.Setting" />
+        <EntitySet Name="TaskListTemplates" EntityType="webapi.Models.TaskListTemplate">
+          <NavigationPropertyBinding Path="Parent" Target="TaskListTemplates" />
+          <NavigationPropertyBinding Path="Children" Target="TaskListTemplates" />
+          <NavigationPropertyBinding Path="Author" Target="Users" />
+          <NavigationPropertyBinding Path="AssignedTo" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="Comments" EntityType="webapi.Models.Comment">
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Parent" Target="Comments" />
+          <NavigationPropertyBinding Path="Children" Target="Comments" />
+        </EntitySet>
+        <EntitySet Name="ManagerTeams" EntityType="webapi.Models.ManagerTeam">
+          <NavigationPropertyBinding Path="Users" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="Templates" EntityType="webapi.Models.Template" />
+        <EntitySet Name="Statistics" EntityType="webapi.Models.Statistic" />
+        <EntitySet Name="Ads" EntityType="webapi.Models.Ads">
+          <NavigationPropertyBinding Path="Lead" Target="Leads" />
+        </EntitySet>
+        <EntitySet Name="FileStorages" EntityType="webapi.Models.FileStorage">
+          <NavigationPropertyBinding Path="Author" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="DetailedLogs" EntityType="webapi.Models.DetailedLog">
+          <NavigationPropertyBinding Path="User" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="Logs" EntityType="webapi.Models.Log">
+          <NavigationPropertyBinding Path="User" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="Reminders" EntityType="webapi.Models.Reminder">
+          <NavigationPropertyBinding Path="ClientAlias" Target="ClientAlias" />
+        </EntitySet>
+        <EntitySet Name="InformationSchemes" EntityType="webapi.Models.InformationScheme">
+          <NavigationPropertyBinding Path="Contract" Target="Contracts" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Type" Target="OrderTypes" />
+          <NavigationPropertyBinding Path="FieldValue" Target="OrderFieldValues" />
+        </EntitySet>
+        <EntitySet Name="Payments" EntityType="webapi.Models.Setting" />
+        <EntitySet Name="SalaryGroups" EntityType="webapi.Models.SalaryGroup">
+          <NavigationPropertyBinding Path="Rates" Target="ClientRates" />
+          <NavigationPropertyBinding Path="Users" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="ClientRates" EntityType="webapi.Models.ClientRate">
+          <NavigationPropertyBinding Path="SalaryGroup" Target="SalaryGroups" />
+        </EntitySet>
+        <EntitySet Name="Salaries" EntityType="webapi.Models.Salary">
+          <NavigationPropertyBinding Path="BonusForUser" Target="Users" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="Taxonomies" EntityType="webapi.Models.Taxonomy">
+          <NavigationPropertyBinding Path="Parent" Target="Taxonomies" />
+        </EntitySet>
+        <EntitySet Name="SellerGoals" EntityType="webapi.Models.SellerGoal">
+          <NavigationPropertyBinding Path="User" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="ContractDailyStats" EntityType="webapi.Models.ContractDailyStat">
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="ClientManager" Target="Users" />
+          <NavigationPropertyBinding Path="Contract" Target="Contracts" />
+          <NavigationPropertyBinding Path="ProductType" Target="ProductTypes" />
+        </EntitySet>
+        <EntitySet Name="EmployeeManuals" EntityType="webapi.Models.EmployeeManual">
+          <NavigationPropertyBinding Path="ModifiedBy" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="LoyaltyBonus" EntityType="webapi.Models.LoyaltyBonus" />
+        <EntitySet Name="OptimizeRules" EntityType="webapi.Models.OptimizeRule">
+          <NavigationPropertyBinding Path="Product" Target="Products" />
+          <NavigationPropertyBinding Path="TaskList" Target="TaskListTemplates" />
+        </EntitySet>
+        <EntitySet Name="Whitelists" EntityType="webapi.Models.Whitelist">
+          <NavigationPropertyBinding Path="User" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="ClientLogins" EntityType="webapi.Models.ClientLogin">
+          <NavigationPropertyBinding Path="DeletedUser" Target="Users" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Contract" Target="Contracts" />
+        </EntitySet>
+        <EntitySet Name="ClientDailyStats" EntityType="webapi.Models.ClientDailyStat">
+          <NavigationPropertyBinding Path="ClientAlias" Target="ClientAlias" />
+          <NavigationPropertyBinding Path="Seller" Target="Users" />
+          <NavigationPropertyBinding Path="ClientManager" Target="Users" />
+          <NavigationPropertyBinding Path="ProductionManager" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="TimeVaults" EntityType="webapi.Models.TimeVault">
+          <NavigationPropertyBinding Path="Transactions" Target="TimeTransactions" />
+        </EntitySet>
+        <EntitySet Name="AclCaches" EntityType="webapi.Models.AclCache">
+          <NavigationPropertyBinding Path="User" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="WhiteLists" EntityType="webapi.Models.Whitelist">
+          <NavigationPropertyBinding Path="User" Target="Users" />
+        </EntitySet>
+        <EntitySet Name="AppointmentActivities" EntityType="webapi.Models.AppointmentActivity">
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Comment" Target="Comments" />
+          <NavigationPropertyBinding Path="CalendarEvent" Target="CalendarEvents" />
+        </EntitySet>
+        <EntitySet Name="TimeTransactions" EntityType="webapi.Models.TimeTransaction">
+          <NavigationPropertyBinding Path="TimeVault" Target="TimeVaults" />
+          <NavigationPropertyBinding Path="User" Target="Users" />
+          <NavigationPropertyBinding Path="Product" Target="Products" />
+          <NavigationPropertyBinding Path="Comment" Target="Comments" />
+        </EntitySet>
+        <EntitySet Name="BotUsers" EntityType="webapi.Models.BotUser">
+          <NavigationPropertyBinding Path="Country" Target="Countries" />
+        </EntitySet>
+      </EntityContainer>
+    </Schema>
+  </asd>

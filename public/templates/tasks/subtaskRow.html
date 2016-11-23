@@ -1,0 +1,12 @@
+<tr>
+    <td data-content="Title"></td>
+    <td data-content="Description" class="multiline"></td>
+    <td data-content="AssignedTo"></td>
+    <td data-content="StartTime" data-format="DateTimeFormatter"></td>
+    <td data-content="DueTime" data-format="DateTimeFormatter"></td>
+    <td>
+        <i class="fa fa-times deleteSubTask" data-template-bind='[{"attribute":"title","value":"DeleteLabel"}]'></i>/
+        <span data-template-bind='[{"attribute":"title","value":"EditLabel"}]' class="pseudolink"><i class="fa fa-pencil quickEditSubTask"></i></span>/
+        <input name="task_Id" class="taskCheck tableTask" type="checkbox" data-value="Id">
+    </td>
+</tr>

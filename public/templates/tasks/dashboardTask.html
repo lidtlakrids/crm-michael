@@ -1,0 +1,14 @@
+<li class="DashboardTask progress-title"  data-template-bind='[{"attribute":"data-due-date", "value":"DueTime"},{"attribute":"title","value":"Description"},{"attribute":"data-task-model","value":"TaskModel"},{"attribute":"data-task-model-id","value":"TaskModelId"}]'>
+    <div class="row">
+        <div class="col-md-9">
+            <label>
+                <input class="taskCheck" data-value="Id" type="checkbox">
+                <span data-content="Title" data-link="taskLink"  class="responsive-text"></span>
+            </label>
+        </div>
+        <div class="col-md-3 text-right">
+            <span data-content="Due" class="responsive-text"></span>
+            <span data-content="DueTime" data-format="DateFormatter" class="responsive-text dashboardTaskDue"></span>
+        </div>
+    </div>
+</li>
